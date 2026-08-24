@@ -1,4 +1,3 @@
-import DotGrid from './components/DotGrid/DotGrid';
 import { workCategories } from './work/workData';
 
 const campaignCards = Array.from({ length: 15 }, (_, index) => ({
@@ -10,18 +9,10 @@ export default function Home() {
   return (
     <main>
       <section className="hero" id="top">
-        <div className="heroDotGrid" aria-hidden="true">
-          <DotGrid
-            dotSize={10}
-            gap={15}
-            baseColor="#5227FF"
-            activeColor="#5227FF"
-            proximity={120}
-            shockRadius={250}
-            shockStrength={5}
-            resistance={750}
-            returnDuration={1.5}
-          />
+        <div className="heroScene" aria-hidden="true">
+          <img className="heroSceneDay" src="/images/hero-cloud-day-v1.png" alt="" />
+          <img className="heroSceneNight" src="/images/hero-cloud-night-v1.png" alt="" />
+          <div className="heroAtmosphere" />
         </div>
         <div className="heroShade" />
         <header className="siteHeader">
