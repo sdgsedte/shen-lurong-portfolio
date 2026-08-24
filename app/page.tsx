@@ -1,3 +1,5 @@
+import DotGrid from './components/DotGrid/DotGrid';
+
 const campaignCards = Array.from({ length: 15 }, (_, index) => ({
   src: `/images/campaign/campaign-${String(index + 1).padStart(2, "0")}.webp`,
   alt: `Life-space 益生菌电商视觉海报 ${index + 1}`,
@@ -7,7 +9,19 @@ export default function Home() {
   return (
     <main>
       <section className="hero" id="top">
-        <img className="heroVisual" src="/images/hero-campaign-v2.png" alt="" aria-hidden="true" />
+        <div className="heroDotGrid" aria-hidden="true">
+          <DotGrid
+            dotSize={10}
+            gap={15}
+            baseColor="#5227FF"
+            activeColor="#5227FF"
+            proximity={120}
+            shockRadius={250}
+            shockStrength={5}
+            resistance={750}
+            returnDuration={1.5}
+          />
+        </div>
         <div className="heroShade" />
         <header className="siteHeader">
           <a className="wordmark" href="#top" aria-label="沈路荣作品集首页"><span>●</span> SLR</a>
