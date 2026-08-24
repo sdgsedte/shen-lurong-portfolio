@@ -9,7 +9,7 @@ a { color:inherit; text-decoration:none; }
 .hero { position:relative; min-height:100svh; overflow:hidden; isolation:isolate; background:#07101d; }
 .heroScene,.heroShade { position:absolute; inset:0; width:100%; height:100%; }
 .heroScene { z-index:-3; overflow:hidden; background:#07101d; }
-.heroScene>img { position:absolute; top:-2%; left:-1%; width:102%; height:102%; object-fit:cover; object-position:center; transform-origin:center top; will-change:opacity,transform; animation-duration:14s; animation-timing-function:ease-in-out; animation-iteration-count:infinite; }
+.heroScene>img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; will-change:opacity; animation-duration:14s; animation-timing-function:ease-in-out; animation-iteration-count:infinite; }
 .heroSceneDay { animation-name:heroDayCycle; }
 .heroSceneNight { animation-name:heroNightCycle; }
 .heroAtmosphere { position:absolute; inset:0; opacity:.22; background:radial-gradient(circle at 75% 25%,rgb(255 223 160 / 30%),transparent 32%); mix-blend-mode:screen; animation:heroAtmosphereCycle 14s ease-in-out infinite; }
@@ -64,21 +64,21 @@ a { color:inherit; text-decoration:none; }
 .scrollCue b { display:grid; width:42px; height:42px; place-items:center; border:1px solid rgb(255 255 255 / 28%); border-radius:50%; color:white; font-size:15px; }
 @keyframes campaignMarquee { to { transform:translateX(calc(-50% - 12px)); } }
 @keyframes heroDayCycle {
-  0%,28% { opacity:1; transform:scale(.985) translate3d(0,-.7%,0); }
-  40%,90% { opacity:0; transform:scale(1.015) translate3d(-.35%,-.9%,0); }
-  100% { opacity:1; transform:scale(.985) translate3d(0,-.7%,0); }
+  0%,22% { opacity:1; }
+  42%,88% { opacity:0; }
+  100% { opacity:1; }
 }
 @keyframes heroNightCycle {
-  0%,28% { opacity:0; transform:scale(1.015) translate3d(.35%,-.9%,0); }
-  40%,90% { opacity:1; transform:scale(.985) translate3d(0,-.7%,0); }
-  100% { opacity:0; transform:scale(1.015) translate3d(.35%,-.9%,0); }
+  0%,22% { opacity:0; }
+  42%,88% { opacity:1; }
+  100% { opacity:0; }
 }
 @keyframes heroAtmosphereCycle {
-  0%,28%,100% { opacity:.26; filter:hue-rotate(0deg); }
-  40%,90% { opacity:.08; filter:hue-rotate(190deg); }
+  0%,22%,100% { opacity:.26; filter:hue-rotate(0deg); }
+  42%,88% { opacity:.08; filter:hue-rotate(190deg); }
 }
-@keyframes autumnParticleCycle { 0%,26%,100%{opacity:1} 38%,90%{opacity:0} }
-@keyframes winterParticleCycle { 0%,28%,100%{opacity:0} 42%,88%{opacity:1} }
+@keyframes autumnParticleCycle { 0%,20%,100%{opacity:1} 40%,88%{opacity:0} }
+@keyframes winterParticleCycle { 0%,22%,100%{opacity:0} 44%,86%{opacity:1} }
 @keyframes leafDrift {
   0% { transform:translate3d(-15px,-8vh,0) rotate(0deg); opacity:0; }
   12% { opacity:.9; }
