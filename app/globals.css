@@ -9,10 +9,21 @@ a { color:inherit; text-decoration:none; }
 .hero { position:relative; min-height:100svh; overflow:hidden; isolation:isolate; background:#07101d; }
 .heroScene,.heroShade { position:absolute; inset:0; width:100%; height:100%; }
 .heroScene { z-index:-3; overflow:hidden; background:#07101d; }
-.heroScene>img { position:absolute; inset:-2%; width:104%; height:104%; object-fit:cover; object-position:center; will-change:opacity,transform; animation-duration:28s; animation-timing-function:ease-in-out; animation-iteration-count:infinite; }
+.heroScene>img { position:absolute; inset:-2%; width:104%; height:104%; object-fit:cover; object-position:center; will-change:opacity,transform; animation-duration:14s; animation-timing-function:ease-in-out; animation-iteration-count:infinite; }
 .heroSceneDay { animation-name:heroDayCycle; }
 .heroSceneNight { animation-name:heroNightCycle; }
-.heroAtmosphere { position:absolute; inset:0; opacity:.22; background:radial-gradient(circle at 75% 25%,rgb(255 223 160 / 30%),transparent 32%); mix-blend-mode:screen; animation:heroAtmosphereCycle 28s ease-in-out infinite; }
+.heroAtmosphere { position:absolute; inset:0; opacity:.22; background:radial-gradient(circle at 75% 25%,rgb(255 223 160 / 30%),transparent 32%); mix-blend-mode:screen; animation:heroAtmosphereCycle 14s ease-in-out infinite; }
+.seasonParticles { position:absolute; z-index:2; inset:0; overflow:hidden; pointer-events:none; }
+.seasonParticles i { position:absolute; display:block; top:-12%; will-change:transform,opacity; }
+.autumnLeaves { animation:autumnParticleCycle 14s ease-in-out infinite; }
+.autumnLeaves i { width:18px; height:18px; background:#b55316; clip-path:polygon(50% 0,59% 27%,78% 13%,73% 38%,100% 45%,75% 58%,84% 82%,59% 70%,50% 100%,41% 70%,16% 82%,25% 58%,0 45%,27% 38%,22% 13%,41% 27%); filter:drop-shadow(0 3px 5px rgb(50 17 0 / 34%)); animation:leafDrift linear infinite; }
+.autumnLeaves i:nth-child(3n+2) { width:13px; height:13px; background:#d98124; }
+.autumnLeaves i:nth-child(3n+3) { width:10px; height:10px; background:#8f3511; }
+.winterSnow { animation:winterParticleCycle 14s ease-in-out infinite; }
+.winterSnow i { width:7px; height:7px; border-radius:50%; background:rgb(255 255 255 / 84%); box-shadow:0 0 8px rgb(190 220 255 / 72%); animation:snowDrift linear infinite; }
+.winterSnow i:nth-child(4n+1) { width:3px; height:3px; opacity:.7; }
+.winterSnow i:nth-child(4n+2) { width:5px; height:5px; filter:blur(.4px); }
+.winterSnow i:nth-child(4n+3) { width:9px; height:9px; opacity:.58; filter:blur(1.2px); }
 .heroShade { z-index:-2; pointer-events:none; background:linear-gradient(90deg,rgb(2 7 13 / 68%) 0%,rgb(2 7 13 / 28%) 47%,transparent 72%),linear-gradient(180deg,rgb(0 4 11 / 20%) 0%,transparent 42%,rgb(2 6 12 / 86%) 100%); }
 .hero::after { position:absolute; z-index:-1; inset:0; content:""; opacity:.18; pointer-events:none; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E"); }
 .siteHeader { position:fixed; z-index:100; top:20px; left:50%; width:min(1120px,calc(100% - 80px)); min-height:68px; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; padding:8px 12px 8px 14px; border:1px solid rgb(255 255 255 / 16%); border-radius:999px; background:rgb(7 3 22 / 68%); box-shadow:0 18px 60px rgb(0 0 0 / 32%); backdrop-filter:blur(18px); transform:translateX(-50%); }
@@ -32,14 +43,23 @@ a { color:inherit; text-decoration:none; }
 .heroIntro { position:relative; display:flex; align-items:flex-end; gap:18px; margin-top:22px; }
 .heroIntro p { margin:0; color:rgb(255 255 255 / 74%); font-size:14px; line-height:1.65; letter-spacing:.04em; }
 .heroIntro>span { color:var(--accent); font-family:Georgia,serif; font-size:20px; font-style:italic; transform:rotate(-7deg) translateY(-5px); }
-.campaignRail { position:absolute; z-index:3; right:0; bottom:22px; left:0; overflow:hidden; padding:20px 0; mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent); }
-.campaignTrack { width:max-content; display:flex; gap:24px; padding-inline:24px; animation:campaignMarquee 52s linear infinite; }
+.campaignRail { position:absolute; z-index:3; right:0; bottom:0; left:0; overflow:hidden; padding:42px 0 22px; mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent); }
+.campaignRail::before { position:absolute; z-index:0; right:0; bottom:0; left:0; height:78%; content:""; background:linear-gradient(180deg,transparent,rgb(2 8 14 / 38%) 72%,rgb(2 7 12 / 70%)); backdrop-filter:blur(1.5px); }
+.campaignTrack { position:relative; z-index:1; width:max-content; display:flex; align-items:flex-end; gap:20px; padding:16px 20px 0; animation:campaignMarquee 52s linear infinite; }
 .campaignRail:hover .campaignTrack { animation-play-state:paused; }
-.campaignCard { width:clamp(132px,9.4vw,174px); aspect-ratio:184/245; flex:none; margin:0; overflow:hidden; border:1px solid rgb(255 255 255 / 24%); border-radius:20px; background:#0a285d; box-shadow:0 22px 60px rgb(0 5 18 / 42%); transition:transform .35s ease,border-color .35s ease; }
-.campaignCard:nth-child(3n+1) { transform:translateY(5px) rotate(-1.3deg); }
-.campaignCard:nth-child(3n+2) { transform:translateY(-4px) rotate(.7deg); }
-.campaignCard:hover { transform:translateY(-10px) rotate(0deg); border-color:rgb(255 255 255 / 68%); }
-.campaignCard img { display:block; width:100%; height:100%; object-fit:cover; }
+.campaignCard { --arc-y:0px; --card-rotate:0deg; position:relative; width:clamp(132px,9.4vw,174px); aspect-ratio:184/245; flex:none; margin:0; overflow:hidden; border:1px solid rgb(255 255 255 / 18%); border-radius:20px; background:rgb(4 13 23 / 68%); box-shadow:0 18px 46px rgb(0 4 10 / 34%); transform:translateY(var(--arc-y)) rotate(var(--card-rotate)); transition:transform .35s ease,border-color .35s ease,box-shadow .35s ease; }
+.campaignCard::after { position:absolute; inset:0; content:""; pointer-events:none; background:linear-gradient(180deg,rgb(255 255 255 / 4%),transparent 42%,rgb(2 8 14 / 12%)); }
+.campaignCard:nth-child(15n + 1),.campaignCard:nth-child(15n + 15){--arc-y:22px;--card-rotate:-1.4deg}
+.campaignCard:nth-child(15n + 2),.campaignCard:nth-child(15n + 14){--arc-y:16px;--card-rotate:1deg}
+.campaignCard:nth-child(15n + 3),.campaignCard:nth-child(15n + 13){--arc-y:10px;--card-rotate:-.7deg}
+.campaignCard:nth-child(15n + 4),.campaignCard:nth-child(15n + 12){--arc-y:4px;--card-rotate:.5deg}
+.campaignCard:nth-child(15n + 5),.campaignCard:nth-child(15n + 11){--arc-y:-1px;--card-rotate:-.35deg}
+.campaignCard:nth-child(15n + 6),.campaignCard:nth-child(15n + 10){--arc-y:-5px;--card-rotate:.25deg}
+.campaignCard:nth-child(15n + 7),.campaignCard:nth-child(15n + 9){--arc-y:-8px;--card-rotate:-.15deg}
+.campaignCard:nth-child(15n + 8){--arc-y:-10px;--card-rotate:0deg}
+.campaignCard:hover { transform:translateY(calc(var(--arc-y) - 11px)) rotate(0deg) scale(1.018); border-color:rgb(255 255 255 / 55%); box-shadow:0 25px 64px rgb(0 4 10 / 46%); }
+.campaignCard img { display:block; width:100%; height:100%; object-fit:cover; filter:saturate(.82) brightness(.92); transition:filter .35s ease; }
+.campaignCard:hover img { filter:saturate(1) brightness(1); }
 .scrollCue { position:absolute; z-index:4; right:44px; bottom:34px; display:flex; align-items:center; gap:16px; color:rgb(255 255 255 / 64%); font-size:9px; letter-spacing:.16em; }
 .scrollCue b { display:grid; width:42px; height:42px; place-items:center; border:1px solid rgb(255 255 255 / 28%); border-radius:50%; color:white; font-size:15px; }
 @keyframes campaignMarquee { to { transform:translateX(calc(-50% - 12px)); } }
@@ -56,6 +76,20 @@ a { color:inherit; text-decoration:none; }
 @keyframes heroAtmosphereCycle {
   0%,42%,100% { opacity:.26; filter:hue-rotate(0deg); }
   50%,92% { opacity:.08; filter:hue-rotate(190deg); }
+}
+@keyframes autumnParticleCycle { 0%,40%,100%{opacity:1} 48%,92%{opacity:0} }
+@keyframes winterParticleCycle { 0%,40%,100%{opacity:0} 50%,90%{opacity:1} }
+@keyframes leafDrift {
+  0% { transform:translate3d(-15px,-8vh,0) rotate(0deg); opacity:0; }
+  12% { opacity:.9; }
+  58% { transform:translate3d(48px,52vh,0) rotate(390deg); }
+  100% { transform:translate3d(-34px,116vh,0) rotate(760deg); opacity:.2; }
+}
+@keyframes snowDrift {
+  0% { transform:translate3d(0,-8vh,0); opacity:0; }
+  10% { opacity:.95; }
+  50% { transform:translate3d(24px,52vh,0); }
+  100% { transform:translate3d(-18px,114vh,0); opacity:.4; }
 }
 .section { padding-block:clamp(110px,12vw,210px); }
 .sectionKicker { display:grid; grid-template-columns:64px 1fr; align-items:center; gap:22px; margin-bottom:clamp(68px,8vw,120px); color:#747579; font-size:10px; letter-spacing:.18em; }
@@ -331,4 +365,5 @@ a { color:inherit; text-decoration:none; }
   .campaignTrack{animation:none}
   .heroSceneDay,.heroAtmosphere{animation:none}
   .heroSceneNight{display:none;animation:none}
+  .seasonParticles{display:none}
 }

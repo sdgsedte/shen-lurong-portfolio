@@ -4,6 +4,8 @@ const campaignCards = Array.from({ length: 15 }, (_, index) => ({
   src: `/images/campaign/campaign-${String(index + 1).padStart(2, "0")}.webp`,
   alt: `Life-space 益生菌电商视觉海报 ${index + 1}`,
 }));
+const autumnLeaves = Array.from({ length: 12 });
+const snowFlakes = Array.from({ length: 24 });
 
 export default function Home() {
   return (
@@ -11,8 +13,14 @@ export default function Home() {
       <section className="hero" id="top">
         <div className="heroScene" aria-hidden="true">
           <img className="heroSceneDay" src="/images/hero-cloud-day-v1.png" alt="" />
-          <img className="heroSceneNight" src="/images/hero-cloud-night-v1.png" alt="" />
+          <img className="heroSceneNight" src="/images/hero-cloud-winter-night-v2.png" alt="" />
           <div className="heroAtmosphere" />
+          <div className="seasonParticles autumnLeaves">
+            {autumnLeaves.map((_, index) => <i key={index} style={{ left: `${(index * 23 + 7) % 96}%`, animationDelay: `${index * -0.55}s`, animationDuration: `${4.8 + (index % 4) * 0.7}s` }} />)}
+          </div>
+          <div className="seasonParticles winterSnow">
+            {snowFlakes.map((_, index) => <i key={index} style={{ left: `${(index * 17 + 3) % 99}%`, animationDelay: `${index * -0.42}s`, animationDuration: `${5.4 + (index % 6) * 0.62}s` }} />)}
+          </div>
         </div>
         <div className="heroShade" />
         <header className="siteHeader">
