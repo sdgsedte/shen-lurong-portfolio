@@ -104,11 +104,25 @@ export default function Home() {
 
       <footer className="contactScreen" id="contact">
         <div className="shell contactInner">
-          <div className="sectionKicker"><span>04</span><p>START A PROJECT</p></div>
-          <div className="contactHeadline"><p>HAVE A PROJECT IN MIND?</p><h2>LET&apos;S MAKE<br /><i>SOMETHING</i><br />IMPACTFUL.</h2></div>
-          <div className="contactBottom">
-            <a className="mailLink" href="mailto:248612569@qq.com"><span>发送合作邀请</span><b>248612569@qq.com</b><i>↗</i></a>
-            <div className="footerMeta"><span>© 2026 SHEN LURONG</span><span>GUANGZHOU · CHINA</span><a href="#top">BACK TO TOP ↑</a></div>
+          <div className="contactLayout">
+            <div className="contactStatement">
+              <p>联系方式 / LET&apos;S CONNECT</p>
+              <h2>LET&apos;S BUILD<br />BETTER VISUAL<br /><i>SYSTEMS</i> <span>↘</span></h2>
+              <a className="contactBrand" href="#top"><b>●</b> SLR</a>
+            </div>
+            <aside className="contactCard">
+              <p className="contactCardLabel">CONTACT</p>
+              <dl>
+                <div><dt>手机</dt><dd><a href="tel:+8618870700463">188 7070 0463</a></dd></div>
+                <div><dt>微信</dt><dd>二维码扫码联系</dd></div>
+                <div><dt>邮箱</dt><dd><a href="mailto:248612569@qq.com">248612569@qq.com</a></dd></div>
+              </dl>
+              <p className="contactRole">VISUAL / E-COMMERCE / BRAND DESIGN</p>
+              <div className="qrPlaceholder" aria-label="二维码预留位置"><span>QR CODE</span><b>二维码待替换</b></div>
+            </aside>
+          </div>
+          <div className="footerMeta">
+            <span>© 2026 SHEN LURONG</span><span>GUANGZHOU · CHINA</span><a href="#top">BACK TO TOP ↑</a>
           </div>
         </div>
       </footer>
