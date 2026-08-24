@@ -1,25 +1,37 @@
+const campaignCards = Array.from({ length: 15 }, (_, index) => ({
+  src: `/images/campaign/campaign-${String(index + 1).padStart(2, "0")}.webp`,
+  alt: `Life-space 益生菌电商视觉海报 ${index + 1}`,
+}));
+
 export default function Home() {
   return (
     <main>
       <section className="hero" id="top">
-        <video className="heroVideo" autoPlay muted loop playsInline poster="/images/project-ai.png" aria-hidden="true">
-          <source src="/hero-background.mp4" type="video/mp4" />
-        </video>
+        <img className="heroVisual" src="/images/hero-campaign-v2.png" alt="" aria-hidden="true" />
         <div className="heroShade" />
-        <header className="siteHeader shell">
-          <a className="wordmark" href="#top" aria-label="沈路荣作品集首页">SL<span>R</span></a>
-          <nav aria-label="主导航"><a href="#about">关于</a><a href="#works">作品</a><a href="#strengths">能力</a></nav>
+        <header className="siteHeader">
+          <a className="wordmark" href="#top" aria-label="沈路荣作品集首页"><span>●</span> SLR</a>
+          <nav className="heroNav" aria-label="主导航"><a href="#about">工作经历</a><a href="#works">精选作品</a><a href="#strengths">个人优势</a></nav>
           <a className="contactPill" href="mailto:248612569@qq.com">联系合作 <span>↗</span></a>
         </header>
-        <div className="heroContent shell">
-          <div className="availability"><span /> AVAILABLE FOR SELECTED PROJECTS · 2026</div>
-          <h1>VISUAL SYSTEMS<br /><em>THAT SELL.</em></h1>
-          <div className="heroBottom">
-            <p>视觉设计师 / 电商设计师 / 品牌设计师<br />用策略、视觉与技术，打造能被记住也能带来转化的品牌体验。</p>
-            <a className="scrollCue" href="#about"><span>SCROLL TO EXPLORE</span><b>↓</b></a>
+        <div className="heroContent">
+          <div className="availability"><span /> VISUAL / E-COMMERCE / BRAND DESIGNER</div>
+          <h1><strong>SHEN LURONG</strong><br />PORTFOLIO <i>✦</i></h1>
+          <div className="heroIntro">
+            <p>用视觉系统与 AI 工作流<br />让品牌内容更快、更准、更有辨识度</p>
+            <span>Visual Designer</span>
           </div>
         </div>
-        <div className="heroIndex shell" aria-hidden="true"><span>SHEN LURONG — PORTFOLIO</span><span>01 / 05</span></div>
+        <div className="campaignRail" aria-label="Life-space 电商视觉作品轮播">
+          <div className="campaignTrack">
+            {[...campaignCards, ...campaignCards].map((card, index) => (
+              <figure className="campaignCard" key={`${card.src}-${index}`} aria-hidden={index >= campaignCards.length}>
+                <img src={card.src} alt={index < campaignCards.length ? card.alt : ""} />
+              </figure>
+            ))}
+          </div>
+        </div>
+        <a className="scrollCue" href="#about"><span>SCROLL TO EXPLORE</span><b>↓</b></a>
       </section>
       <section className="about section shell" id="about">
         <div className="sectionKicker"><span>02</span><p>ABOUT / EXPERIENCE</p></div>
