@@ -15,6 +15,7 @@ export const workCategories = [
     english: 'PRODUCT DETAIL PAGE',
     description: '信息架构 / 卖点表达 / 转化设计',
     image: '/images/work-categories/product-detail.webp',
+    fit: 'contain',
     intro: '从用户决策路径出发，组织产品卖点、视觉节奏与信任信息，完成高效的电商详情表达。'
   },
   {
@@ -43,6 +44,7 @@ export const workCategories = [
     english: '3D RENDERING',
     description: '产品建模 / 材质灯光 / 商业氛围',
     image: '/images/work-categories/3d-rendering.webp',
+    fit: 'contain',
     intro: '通过产品建模、材质、灯光与场景搭建，输出具有商业质感的静帧与动态视觉素材。'
   }
 ];

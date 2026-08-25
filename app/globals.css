@@ -212,6 +212,8 @@ a { color:inherit; text-decoration:none; }
 .workCategoryMedia { position:absolute; inset:0; overflow:hidden; background:#0a1118; }
 .workCategoryMedia>img { width:100%; height:100%; object-fit:cover; filter:saturate(.86) brightness(.9); transition:transform .8s cubic-bezier(.2,.75,.2,1),filter .5s ease; }
 .workCategoryCard2 .workCategoryMedia>img { object-position:center; }
+.workCategoryMediaContain::before { position:absolute; inset:-12%; content:""; background:inherit; background-position:center; background-size:cover; filter:blur(28px) brightness(.42) saturate(.9); transform:scale(1.08); }
+.workCategoryMediaContain>img { position:relative; z-index:1; object-fit:contain; }
 .workCategoryMediaSplit { display:grid; grid-template-columns:1fr 1fr; gap:4px; padding:0 6%; background:#07518c; }
 .workCategoryMediaSplit>img { object-fit:contain; }
 .workCategoryShade { position:absolute; inset:0; background:linear-gradient(180deg,rgb(0 0 0 / 3%) 16%,rgb(0 3 8 / 20%) 48%,rgb(0 5 9 / 94%) 100%); }

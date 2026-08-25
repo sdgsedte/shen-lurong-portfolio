@@ -90,7 +90,10 @@ export default function Home() {
           <div className="workCategoryGrid">
             {workCategories.map((item, index) => (
               <a className={`workCategoryCard workCategoryCard${index + 1}`} href={`/work/${item.slug}`} key={item.slug}>
-                <div className={`workCategoryMedia${item.secondaryImage ? ' workCategoryMediaSplit' : ''}`}>
+                <div
+                  className={`workCategoryMedia${item.secondaryImage ? ' workCategoryMediaSplit' : ''}${item.fit === 'contain' ? ' workCategoryMediaContain' : ''}`}
+                  style={item.fit === 'contain' ? { backgroundImage: `url(${item.image})` } : undefined}
+                >
                   <img src={item.image} alt={`${item.title}分类封面`} />
                   {item.secondaryImage && <img src={item.secondaryImage} alt={`${item.title}分类封面补充画面`} />}
                 </div>
