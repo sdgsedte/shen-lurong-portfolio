@@ -86,7 +86,7 @@ export default function Home() {
       <section className="works section" id="works">
         <div className="shell">
           <div className="sectionKicker"><span>03</span><p>SELECTED WORK / CAPABILITIES</p></div>
-          <div className="worksHeading"><div><h2>SELECTED WORKS <i>↘</i></h2><span>视觉作品分类</span></div><p>将能力与案例整合为五个作品方向。点击任意板块进入独立页面；当前图片为临时占位，后续替换为你的真实作品。</p></div>
+          <div className="worksHeading"><div><h2>SELECTED WORKS <i>↘</i></h2><span>视觉作品分类</span></div><p>五个作品方向，点击卡片进入独立页面。</p></div>
           <div className="workCategoryGrid">
             {workCategories.map((item, index) => (
               <a className={`workCategoryCard workCategoryCard${index + 1}`} href={`/work/${item.slug}`} key={item.slug}>
