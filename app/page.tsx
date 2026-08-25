@@ -90,7 +90,10 @@ export default function Home() {
           <div className="workCategoryGrid">
             {workCategories.map((item, index) => (
               <a className={`workCategoryCard workCategoryCard${index + 1}`} href={`/work/${item.slug}`} key={item.slug}>
-                <img src={item.image} alt={`${item.title}分类封面`} />
+                <div className={`workCategoryMedia${item.secondaryImage ? ' workCategoryMediaSplit' : ''}`}>
+                  <img src={item.image} alt={`${item.title}分类封面`} />
+                  {item.secondaryImage && <img src={item.secondaryImage} alt={`${item.title}分类封面补充画面`} />}
+                </div>
                 <div className="workCategoryShade" />
                 <span className="workCategoryIndex">{item.index}</span>
                 <div className="workCategoryCopy"><p>{item.english}</p><h3>{item.title}</h3><span>{item.description}</span></div>
