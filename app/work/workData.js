@@ -33,8 +33,7 @@ export const workCategories = [
     title: '直播间物料设计',
     english: 'LIVE COMMERCE',
     description: '直播背景 / 贴片 / 引流物料',
-    image: '/images/work-categories/livestream-1.webp',
-    secondaryImage: '/images/work-categories/livestream-2.webp',
+    image: '/images/work-categories/livestream.webp',
     intro: '围绕直播场景建立从主背景、机制贴片到引流海报的整套视觉，确保信息清晰且快速适配。'
   },
   {
@@ -44,7 +43,6 @@ export const workCategories = [
     english: '3D RENDERING',
     description: '产品建模 / 材质灯光 / 商业氛围',
     image: '/images/work-categories/3d-rendering.webp',
-    fit: 'contain',
     intro: '通过产品建模、材质、灯光与场景搭建，输出具有商业质感的静帧与动态视觉素材。'
   }
 ];
