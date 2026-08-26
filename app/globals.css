@@ -252,17 +252,17 @@ a { color:inherit; text-decoration:none; }
 .caseCategoryHeading h1 i { color:var(--accent); font-style:normal; }
 .caseCategoryHeading>div>span { display:block; margin-top:18px; color:#65676c; font-size:11px; letter-spacing:.08em; }
 .caseCategoryHeading>p { max-width:600px; margin:0; color:#77797f; font-size:14px; line-height:1.9; }
-.pylCaseHeader { display:grid; grid-template-columns:.72fr 1.28fr; gap:clamp(48px,7vw,120px); padding:clamp(56px,6vw,100px); border-radius:34px; background:linear-gradient(135deg,#0759aa 0%,#078fd8 52%,#41c9ef 100%); color:white; box-shadow:0 36px 120px rgb(0 95 170 / 20%); }
+.pylCaseHeader { display:grid; grid-template-columns:.72fr 1.28fr; gap:clamp(48px,7vw,120px); padding:clamp(56px,6vw,100px); border:1px solid #303238; border-radius:34px; background:linear-gradient(145deg,#0e1013 0%,#08090b 100%); color:white; box-shadow:0 36px 120px rgb(0 0 0 / 24%); }
 .pylCaseIdentity { display:flex; flex-direction:column; }
-.pylCaseIdentity>p,.pylCaseContent article>span { margin:0 0 22px; color:rgb(255 255 255 / 66%); font-size:9px; letter-spacing:.17em; }
+.pylCaseIdentity>p,.pylCaseContent article>span { margin:0 0 22px; color:var(--accent); font-size:9px; letter-spacing:.17em; }
 .pylCaseIdentity h2 { margin:0; font-size:clamp(52px,5.6vw,96px); font-weight:600; line-height:.9; letter-spacing:-.065em; }
 .pylCaseIdentity>span { margin-top:auto; padding-top:48px; color:rgb(255 255 255 / 64%); font-size:11px; letter-spacing:.08em; }
 .pylCaseContent { display:grid; grid-template-columns:1fr 1fr; gap:42px 48px; }
-.pylCaseContent article { padding-top:24px; border-top:1px solid rgb(255 255 255 / 34%); }
+.pylCaseContent article { padding-top:24px; border-top:1px solid #303238; }
 .pylCaseContent article>span { display:block; margin-bottom:18px; }
 .pylCaseContent h3 { margin:0 0 18px; font-size:clamp(22px,1.8vw,32px); font-weight:500; line-height:1.25; letter-spacing:-.035em; }
 .pylCaseContent article p { margin:0; color:rgb(255 255 255 / 74%); font-size:13px; line-height:1.9; }
-.pylPalette { grid-column:1/-1; display:grid; grid-template-columns:repeat(4,1fr); gap:14px; padding-top:28px; border-top:1px solid rgb(255 255 255 / 34%); }
+.pylPalette { grid-column:1/-1; display:grid; grid-template-columns:repeat(4,1fr); gap:14px; padding-top:28px; border-top:1px solid #303238; }
 .pylPalette>div { display:flex; align-items:center; gap:14px; }
 .pylPalette i { width:48px; height:48px; flex:none; border:1px solid rgb(255 255 255 / 42%); border-radius:8px; box-shadow:0 8px 28px rgb(0 45 90 / 18%); }
 .pylPalette span { color:rgb(255 255 255 / 72%); font-size:9px; line-height:1.55; letter-spacing:.08em; }

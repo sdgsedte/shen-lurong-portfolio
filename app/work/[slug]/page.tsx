@@ -63,19 +63,19 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
             <div className="pylCaseIdentity">
               <p>01 / E-COMMERCE DESIGN</p>
               <h2>PYL100<br />抗幽益生菌</h2>
-              <span>详情页视觉设计 / 肠胃养护品类</span>
+              <span>详情页视觉设计 / 胃部养护品类</span>
             </div>
 
             <div className="pylCaseContent">
               <article>
                 <span>PRODUCT BENEFIT / 产品功效</span>
-                <h3>聚焦胃部微生态与日常肠道养护</h3>
-                <p>围绕幽门螺杆菌相关的胃部微生态养护需求，以专利益生菌组合为核心卖点，传达菌群平衡、消化支持与日常肠胃防护的产品价值。</p>
+                <h3>聚焦胃部微生态与日常胃部养护</h3>
+                <p>围绕幽门螺杆菌相关的胃部微生态养护需求，以专利益生菌组合为核心卖点，传达菌群平衡、胃黏膜养护与日常胃部防护的产品价值。</p>
               </article>
               <article>
                 <span>DESIGN CONCEPT / 设计思路</span>
-                <h3>品牌蓝 × 科技感 × 肠道养护</h3>
-                <p>KV 以高识别度品牌蓝建立专业可信的视觉基调，将产品置于发光能量场中，并结合冰川、粒子、微观菌群与环形光轨，表达纯净配方、科学研发及肠道菌群循环。页面从核心卖点、作用机理到专业背书逐层推进，兼顾科技氛围与电商阅读效率。</p>
+                <h3>品牌蓝 × 科技感 × 胃部养护</h3>
+                <p>KV 以品牌蓝建立专业可信的视觉基调，将产品置于发光能量场中，并结合粒子、微观菌群、环形光轨与胃部轮廓，强化科学研发与胃部微生态养护的联想。圆形能量轨迹呼应菌群平衡与持续防护，画面以产品为中心，通过清晰的信息层级兼顾科技氛围与电商阅读效率。</p>
               </article>
               <div className="pylPalette" aria-label="项目色彩系统">
                 <div><i style={{ background: '#079BE7' }} /><span>主色<br /><b>#079BE7</b></span></div>
