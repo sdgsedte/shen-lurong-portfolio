@@ -48,6 +48,17 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
 
       {isProductDetail ? (
         <section className="pylCaseStudy" aria-label="PYL100 抗幽益生菌详情页案例">
+          <div className="caseCategoryLead">
+            <div className="caseCategoryHeading">
+              <div>
+                <p>02 / {item.english}</p>
+                <h1>{item.title} <i>↘</i></h1>
+                <span>{item.description}</span>
+              </div>
+              <p>{item.intro}</p>
+            </div>
+          </div>
+
           <div className="pylCaseHeader">
             <div className="pylCaseIdentity">
               <p>01 / E-COMMERCE DESIGN</p>
