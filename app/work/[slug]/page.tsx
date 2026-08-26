@@ -78,9 +78,9 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
           <div className="pylArtwork">
             <div className="pylArtworkLabel"><span>FULL DETAIL PAGE</span><b>完整详情页展示</b></div>
             <div className="pylArtworkGrid" role="img" aria-label="PYL100 抗幽益生菌电商详情页，按顺序分为三列展示">
-              <i className="pylArtworkSegment pylArtworkSegment1" />
-              <i className="pylArtworkSegment pylArtworkSegment2" />
-              <i className="pylArtworkSegment pylArtworkSegment3" />
+              <i className="pylArtworkSegment pylArtworkSegment1"><img src="/images/projects/pyl100-detail.jpg" alt="" /></i>
+              <i className="pylArtworkSegment pylArtworkSegment2"><img src="/images/projects/pyl100-detail.jpg" alt="" /></i>
+              <i className="pylArtworkSegment pylArtworkSegment3"><img src="/images/projects/pyl100-detail.jpg" alt="" /></i>
             </div>
           </div>
           <a className="pylBackLink" href="/#works">← 返回浏览其他分类</a>
