@@ -255,7 +255,7 @@ a { color:inherit; text-decoration:none; }
 .pylCaseHeader { display:grid; grid-template-columns:.72fr 1.28fr; gap:clamp(48px,7vw,120px); padding:clamp(56px,6vw,100px); border:1px solid #303238; border-radius:34px; background:linear-gradient(145deg,#0e1013 0%,#08090b 100%); color:white; box-shadow:0 36px 120px rgb(0 0 0 / 24%); }
 .pylCaseIdentity { display:flex; flex-direction:column; }
 .pylCaseIdentity>p,.pylCaseContent article>span { margin:0 0 22px; color:var(--accent); font-size:9px; letter-spacing:.17em; }
-.pylCaseIdentity h2 { margin:0; font-size:clamp(52px,5.6vw,96px); font-weight:600; line-height:.9; letter-spacing:-.065em; }
+.pylCaseIdentity h2 { margin:0; font-size:clamp(52px,5.6vw,96px); font-weight:600; line-height:1.02; letter-spacing:-.018em; }
 .pylCaseIdentity>span { margin-top:auto; padding-top:48px; color:rgb(255 255 255 / 64%); font-size:11px; letter-spacing:.08em; }
 .pylCaseContent { display:grid; grid-template-columns:1fr 1fr; gap:42px 48px; }
 .pylCaseContent article { padding-top:24px; border-top:1px solid #303238; }

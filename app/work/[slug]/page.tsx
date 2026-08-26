@@ -47,7 +47,7 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
       )}
 
       {isProductDetail ? (
-        <section className="pylCaseStudy" aria-label="PYL100 抗幽益生菌详情页案例">
+        <section className="pylCaseStudy" aria-label="PYL100 益生菌详情页案例">
           <div className="caseCategoryLead">
             <div className="caseCategoryHeading">
               <div>
@@ -62,7 +62,7 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
           <div className="pylCaseHeader">
             <div className="pylCaseIdentity">
               <p>01 / E-COMMERCE DESIGN</p>
-              <h2>PYL100<br />抗幽益生菌</h2>
+              <h2>PYL100<br />益生菌</h2>
               <span>详情页视觉设计 / 胃部养护品类</span>
             </div>
 
@@ -88,7 +88,7 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
 
           <div className="pylArtwork">
             <div className="pylArtworkLabel"><span>FULL DETAIL PAGE</span><b>完整详情页展示</b></div>
-            <div className="pylArtworkGrid" role="img" aria-label="PYL100 抗幽益生菌电商详情页，按顺序分为三列展示">
+            <div className="pylArtworkGrid" role="img" aria-label="PYL100 益生菌电商详情页，按顺序分为三列展示">
               <i className="pylArtworkSegment pylArtworkSegment1"><img src="/images/projects/pyl100-detail.jpg" alt="" /></i>
               <i className="pylArtworkSegment pylArtworkSegment2"><img src="/images/projects/pyl100-detail.jpg" alt="" /></i>
               <i className="pylArtworkSegment pylArtworkSegment3"><img src="/images/projects/pyl100-detail.jpg" alt="" /></i>
