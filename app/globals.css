@@ -257,6 +257,12 @@ a { color:inherit; text-decoration:none; }
 .pylCaseIdentity>p,.pylCaseContent article>span { margin:0 0 22px; color:var(--accent); font-size:9px; letter-spacing:.17em; }
 .pylCaseIdentity h2 { margin:0; font-size:clamp(52px,5.6vw,96px); font-weight:600; line-height:1.02; letter-spacing:-.018em; }
 .pylCaseIdentity>span { margin-top:auto; padding-top:48px; color:rgb(255 255 255 / 64%); font-size:11px; letter-spacing:.08em; }
+.pylCaseHeader--second { margin-top:clamp(100px,12vw,190px); }
+.lpbSymbol { position:relative; width:fit-content; display:grid; grid-template-columns:auto auto; align-items:baseline; margin-top:34px; padding:13px 54px 12px 20px; overflow:hidden; border:1px solid #27b9ff; border-radius:999px; background:linear-gradient(100deg,rgb(0 85 199 / 70%),rgb(2 143 229 / 18%)); box-shadow:0 0 36px rgb(2 143 229 / 22%); color:white; font-style:normal; }
+.lpbSymbol::after { content:""; position:absolute; top:50%; right:14px; width:28px; height:1px; background:#f2c65c; box-shadow:8px -6px 0 #27b9ff,4px 6px 0 #fff; transform:skewX(-30deg); }
+.lpbSymbol i { font-size:13px; font-style:normal; font-weight:700; letter-spacing:.14em; }
+.lpbSymbol b { margin-left:4px; color:#f2c65c; font-size:23px; line-height:.9; }
+.lpbSymbol span { grid-column:1/-1; margin-top:4px; color:rgb(255 255 255 / 54%); font-size:7px; letter-spacing:.19em; }
 .pylCaseContent { display:grid; grid-template-columns:1fr 1fr; gap:42px 48px; }
 .pylCaseContent article { padding-top:24px; border-top:1px solid #303238; }
 .pylCaseContent article>span { display:block; margin-bottom:18px; }
@@ -276,6 +282,8 @@ a { color:inherit; text-decoration:none; }
 .pylArtworkSegment img { position:absolute; top:0; left:0; display:block; width:100%; max-width:none; height:auto; }
 .pylArtworkSegment2 img { transform:translateY(-33.333333%); }
 .pylArtworkSegment3 img { transform:translateY(-66.666667%); }
+.lpbArtworkSegment { aspect-ratio:790/7821; }
+.pylArtwork--lpb { background:linear-gradient(180deg,#06172c,#03101f); }
 .pylBackLink { display:block; width:fit-content; margin:56px auto 0; padding-bottom:8px; border-bottom:1px solid #45474d; color:#a3a5aa; font-size:11px; }
 .contactScreen { min-height:100svh; display:flex; align-items:stretch; overflow:hidden; background:#090909; color:#f2f3ef; }
 .contactInner { display:flex; flex-direction:column; justify-content:space-between; padding-block:clamp(70px,8vh,120px) 40px; }

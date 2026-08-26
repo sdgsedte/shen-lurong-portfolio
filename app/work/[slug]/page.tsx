@@ -47,7 +47,7 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
       )}
 
       {isProductDetail ? (
-        <section className="pylCaseStudy" aria-label="PYL100 益生菌详情页案例">
+        <section className="pylCaseStudy" aria-label="益生菌详情页设计案例">
           <div className="caseCategoryLead">
             <div className="caseCategoryHeading">
               <div>
@@ -92,6 +92,45 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
               <i className="pylArtworkSegment pylArtworkSegment1"><img src="/images/projects/pyl100-detail.jpg" alt="" /></i>
               <i className="pylArtworkSegment pylArtworkSegment2"><img src="/images/projects/pyl100-detail.jpg" alt="" /></i>
               <i className="pylArtworkSegment pylArtworkSegment3"><img src="/images/projects/pyl100-detail.jpg" alt="" /></i>
+            </div>
+          </div>
+
+          <div className="pylCaseHeader pylCaseHeader--second">
+            <div className="pylCaseIdentity">
+              <p>02 / E-COMMERCE DESIGN</p>
+              <h2>600亿<br />益生菌</h2>
+              <div className="lpbSymbol" aria-label="LPB27 自研菌株视觉符号">
+                <i>LPB</i><b>27</b><span>PROPRIETARY STRAIN</span>
+              </div>
+              <span>详情页视觉设计 / 日常肠道养护品类</span>
+            </div>
+
+            <div className="pylCaseContent">
+              <article>
+                <span>PRODUCT BENEFIT / 产品功效</span>
+                <h3>600 亿高含量配方，快速开启肠道养护</h3>
+                <p>围绕日常肠道菌群平衡与消化状态管理，以 600 亿高含量益生菌为核心信息，并重点突出自主研发的 LPB27 菌株，传达高活性补充、快速响应与持续肠道防护的产品价值。</p>
+              </article>
+              <article>
+                <span>DESIGN CONCEPT / 设计思路</span>
+                <h3>品牌蓝 × 速度感 × 科技感</h3>
+                <p>视觉以高明度品牌蓝建立专业科技基调，通过斜切箭头、加速光轨与向前冲刺的构图节奏，强化“快速护肠”的速度感。将自研菌株名称 LPB27 提炼为胶囊形菌株符号，并结合环形能量轨迹反复出现，使核心技术成为贯穿页面的视觉记忆点；信息层级围绕 600 亿含量、LPB27 菌株与日常养护利益展开，兼顾科学可信度与电商阅读效率。</p>
+              </article>
+              <div className="pylPalette" aria-label="项目色彩系统">
+                <div><i style={{ background: '#028FE5' }} /><span>主色<br /><b>#028FE5</b></span></div>
+                <div><i style={{ background: '#0055C7' }} /><span>辅助色<br /><b>#0055C7</b></span></div>
+                <div><i style={{ background: '#FFFFFF' }} /><span>信息色<br /><b>#FFFFFF</b></span></div>
+                <div><i style={{ background: '#F2C65C' }} /><span>点缀色<br /><b>#F2C65C</b></span></div>
+              </div>
+            </div>
+          </div>
+
+          <div className="pylArtwork pylArtwork--lpb">
+            <div className="pylArtworkLabel"><span>FULL DETAIL PAGE</span><b>完整详情页展示</b></div>
+            <div className="pylArtworkGrid" role="img" aria-label="600 亿益生菌电商详情页，按顺序分为三列展示">
+              <i className="pylArtworkSegment lpbArtworkSegment pylArtworkSegment1"><img src="/images/projects/lpb27-600-detail.jpg" alt="" /></i>
+              <i className="pylArtworkSegment lpbArtworkSegment pylArtworkSegment2"><img src="/images/projects/lpb27-600-detail.jpg" alt="" /></i>
+              <i className="pylArtworkSegment lpbArtworkSegment pylArtworkSegment3"><img src="/images/projects/lpb27-600-detail.jpg" alt="" /></i>
             </div>
           </div>
           <a className="pylBackLink" href="/#works">← 返回浏览其他分类</a>
