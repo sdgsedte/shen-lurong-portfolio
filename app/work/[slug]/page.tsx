@@ -133,6 +133,78 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
               <i className="pylArtworkSegment lpbArtworkSegment pylArtworkSegment3"><img src="/images/projects/lpb27-600-detail.jpg" alt="" /></i>
             </div>
           </div>
+
+          <div className="pylCaseHeader pylCaseHeader--second">
+            <div className="pylCaseIdentity">
+              <p>03 / E-COMMERCE DESIGN</p>
+              <h2>车载<br />香薰仪</h2>
+              <span>详情页视觉设计 / 智能车载香氛品类</span>
+            </div>
+
+            <div className="pylCaseContent">
+              <article>
+                <span>PRODUCT BENEFIT / 产品功效</span>
+                <h3>智能感应调节，提升车内空气体验</h3>
+                <p>围绕驾驶场景中的异味与香氛管理需求，将智能感应、便捷操控和持续扩香整合为核心卖点。产品可减少频繁手动操作，以稳定细腻的香气释放改善车内环境，为日常通勤与长途驾驶营造更舒适的空间体验。</p>
+              </article>
+              <article>
+                <span>DESIGN CONCEPT / 设计思路</span>
+                <h3>深海蓝 × AI 科技 × 金属质感</h3>
+                <p>页面以深海蓝和金属黑构建智能车载设备的科技氛围，将香薰仪置于真实出风口与座舱场景中，通过芯片纹理、数据面板、气流光线和环形能量轨迹解释智能感应与扩香路径。香槟金作为点缀强化产品材质与高级感，纵向信息节奏从功能识别、技术原理到使用场景逐步展开，让科技卖点更直观易懂。</p>
+              </article>
+              <div className="pylPalette" aria-label="项目色彩系统">
+                <div><i style={{ background: '#071B38' }} /><span>主色<br /><b>#071B38</b></span></div>
+                <div><i style={{ background: '#0D4F8F' }} /><span>辅助色<br /><b>#0D4F8F</b></span></div>
+                <div><i style={{ background: '#F3F7FA' }} /><span>信息色<br /><b>#F3F7FA</b></span></div>
+                <div><i style={{ background: '#C5A064' }} /><span>点缀色<br /><b>#C5A064</b></span></div>
+              </div>
+            </div>
+          </div>
+
+          <div className="pylArtwork pylArtwork--car">
+            <div className="pylArtworkLabel"><span>FULL DETAIL PAGE</span><b>完整详情页展示</b></div>
+            <div className="pylArtworkGrid" role="img" aria-label="车载香薰仪电商详情页，按顺序分为三列展示">
+              <i className="pylArtworkSegment carArtworkSegment pylArtworkSegment1"><img src="/images/projects/car-aroma-detail.jpg" alt="" /></i>
+              <i className="pylArtworkSegment carArtworkSegment pylArtworkSegment2"><img src="/images/projects/car-aroma-detail.jpg" alt="" /></i>
+              <i className="pylArtworkSegment carArtworkSegment pylArtworkSegment3"><img src="/images/projects/car-aroma-detail.jpg" alt="" /></i>
+            </div>
+          </div>
+
+          <div className="pylCaseHeader pylCaseHeader--second">
+            <div className="pylCaseIdentity">
+              <p>04 / E-COMMERCE DESIGN</p>
+              <h2>中老年<br />益生菌</h2>
+              <span>详情页视觉设计 / 中老年肠道养护品类</span>
+            </div>
+
+            <div className="pylCaseContent">
+              <article>
+                <span>PRODUCT BENEFIT / 产品功效</span>
+                <h3>面向中老年人群的日常肠道守护</h3>
+                <p>围绕年龄增长带来的肠道菌群变化与日常排便管理需求，以适龄益生菌组合为核心信息，传达补充有益菌、维持菌群平衡和支持消化状态的产品价值，为长辈提供温和、持续且易理解的日常肠道养护方案。</p>
+              </article>
+              <article>
+                <span>DESIGN CONCEPT / 设计思路</span>
+                <h3>清透蓝 × 温和守护 × 科学可信</h3>
+                <p>视觉以清透蓝建立洁净、安心的健康氛围，通过柔和光环、透明气泡、胶囊与流动水感表现益生菌活力和温和养护。人物生活场景增强长辈人群的代入感，金色点缀传达关怀与品质；页面采用更清晰的字号、对比和分段结构，将人群需求、配方依据与食用信息逐层呈现，兼顾科学感与适老阅读体验。</p>
+              </article>
+              <div className="pylPalette" aria-label="项目色彩系统">
+                <div><i style={{ background: '#14B7E7' }} /><span>主色<br /><b>#14B7E7</b></span></div>
+                <div><i style={{ background: '#86E2F5' }} /><span>辅助色<br /><b>#86E2F5</b></span></div>
+                <div><i style={{ background: '#FFFFFF' }} /><span>信息色<br /><b>#FFFFFF</b></span></div>
+                <div><i style={{ background: '#F5C862' }} /><span>点缀色<br /><b>#F5C862</b></span></div>
+              </div>
+            </div>
+          </div>
+
+          <div className="pylArtwork pylArtwork--senior">
+            <div className="pylArtworkLabel"><span>FULL DETAIL PAGE</span><b>完整详情页展示</b></div>
+            <div className="pylArtworkGrid" role="img" aria-label="中老年益生菌电商详情页，按顺序分为三列展示">
+              <i className="pylArtworkSegment seniorArtworkSegment pylArtworkSegment1"><img src="/images/projects/senior-probiotic-detail.jpg" alt="" /></i>
+              <i className="pylArtworkSegment seniorArtworkSegment pylArtworkSegment2"><img src="/images/projects/senior-probiotic-detail.jpg" alt="" /></i>
+              <i className="pylArtworkSegment seniorArtworkSegment pylArtworkSegment3"><img src="/images/projects/senior-probiotic-detail.jpg" alt="" /></i>
+            </div>
+          </div>
           <a className="pylBackLink" href="/#works">← 返回浏览其他分类</a>
         </section>
       ) : (
