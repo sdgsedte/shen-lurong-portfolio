@@ -59,6 +59,15 @@ const productRenderImages = [
   '/images/projects/product-render-04.jpg'
 ];
 
+const livestreamCases = [
+  { title: '天猫日常直播视觉', image: '/images/projects/livestream-daily.jpg' },
+  { title: '小红书室内直播视觉', image: '/images/projects/livestream-xhs-interior.jpg' },
+  { title: '双11直播间视觉', image: '/images/projects/livestream-double11.jpg' },
+  { title: '过年前直播间视觉', image: '/images/projects/livestream-pre-spring.jpg' },
+  { title: '春节直播间视觉', image: '/images/projects/livestream-spring-festival.jpg' },
+  { title: '代言人续约直播视觉', image: '/images/projects/livestream-ambassador-renewal.jpg' }
+];
+
 export function generateStaticParams() {
   return workCategories.map(item => ({ slug: item.slug }));
 }
@@ -78,6 +87,7 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
   const isProductDetail = slug === 'product-detail';
   const isBrandKv = slug === 'brand-kv';
   const is3dRendering = slug === '3d-rendering';
+  const isLivestream = slug === 'livestream';
 
   return (
     <main className="workDetailPage">
@@ -87,7 +97,7 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
         <a href="mailto:248612569@qq.com">联系合作 ↗</a>
       </header>
 
-      {!isProductDetail && !isBrandKv && !is3dRendering && (
+      {!isProductDetail && !isBrandKv && !is3dRendering && !isLivestream && (
         <>
           <section className="workDetailHero">
             <div className="workDetailTitle">
@@ -308,6 +318,45 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
               </article>
             ))}
           </div>
+          <a className="pylBackLink" href="/#works">← 返回浏览其他分类</a>
+        </section>
+      ) : isLivestream ? (
+        <section className="renderStudy livestreamStudy" aria-label="直播间视觉作品集">
+          <div className="caseCategoryLead">
+            <div className="caseCategoryHeading">
+              <div>
+                <p>04 / {item.english}</p>
+                <h1>{item.title} <i>↘</i></h1>
+                <span>{item.description}</span>
+              </div>
+              <p>{item.intro}</p>
+            </div>
+          </div>
+
+          <section className="renderSection" aria-labelledby="livestream-visual-title">
+            <div className="renderSectionHeading">
+              <p>01 / LIVE COMMERCE VISUAL SYSTEM</p>
+              <h2 id="livestream-visual-title">直播间视觉</h2>
+              <span>06 WORKS</span>
+            </div>
+            <div className="livestreamGrid">
+              {livestreamCases.slice(0, 3).map((project, index) => (
+                <figure className="livestreamCard" key={project.image}>
+                  <img src={project.image} alt={project.title} loading={index === 0 ? 'eager' : 'lazy'} decoding="async" />
+                  <figcaption><span>{String(index + 1).padStart(2, '0')}</span><b>{project.title}</b></figcaption>
+                </figure>
+              ))}
+              <div className="renderGridDivider" aria-hidden="true">
+                <span>LIVE COMMERCE · CAMPAIGN VISUAL SYSTEM</span>
+              </div>
+              {livestreamCases.slice(3).map((project, index) => (
+                <figure className="livestreamCard" key={project.image}>
+                  <img src={project.image} alt={project.title} loading="lazy" decoding="async" />
+                  <figcaption><span>{String(index + 4).padStart(2, '0')}</span><b>{project.title}</b></figcaption>
+                </figure>
+              ))}
+            </div>
+          </section>
           <a className="pylBackLink" href="/#works">← 返回浏览其他分类</a>
         </section>
       ) : is3dRendering ? (

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { workCategories } from './work/workData';
 
 const campaignCards = Array.from({ length: 15 }, (_, index) => ({
@@ -89,7 +90,7 @@ export default function Home() {
           <div className="worksHeading"><div><h2>SELECTED WORKS <i>↘</i></h2><span>视觉作品分类</span></div><p>五个作品方向，点击卡片进入独立页面。</p></div>
           <div className="workCategoryGrid">
             {workCategories.map((item, index) => (
-              <a className={`workCategoryCard workCategoryCard${index + 1}`} href={`/work/${item.slug}`} key={item.slug}>
+              <Link className={`workCategoryCard workCategoryCard${index + 1}`} href={`/work/${item.slug}`} key={item.slug}>
                 <div
                   className={`workCategoryMedia${item.fit === 'contain' ? ' workCategoryMediaContain' : ''}`}
                   style={item.fit === 'contain' ? { backgroundImage: `url(${item.image})` } : undefined}
@@ -100,7 +101,7 @@ export default function Home() {
                 <span className="workCategoryIndex">{item.index}</span>
                 <div className="workCategoryCopy"><p>{item.english}</p><h3>{item.title}</h3><span>{item.description}</span></div>
                 <b>↗</b>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
