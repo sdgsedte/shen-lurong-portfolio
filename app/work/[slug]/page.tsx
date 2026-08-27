@@ -330,9 +330,17 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
               <span>06 WORKS</span>
             </div>
             <div className="creativeRenderGrid">
-              {creativeRenderImages.map((image, index) => (
+              {creativeRenderImages.slice(0, 3).map((image, index) => (
                 <figure className="renderImageCard" key={image}>
                   <img src={image} alt={`三维创意海报 ${String(index + 1).padStart(2, '0')}`} />
+                </figure>
+              ))}
+              <div className="renderGridDivider" aria-hidden="true">
+                <span>3D CREATIVE VISUAL EXPLORATION</span>
+              </div>
+              {creativeRenderImages.slice(3).map((image, index) => (
+                <figure className="renderImageCard" key={image}>
+                  <img src={image} alt={`三维创意海报 ${String(index + 4).padStart(2, '0')}`} />
                 </figure>
               ))}
             </div>
@@ -345,9 +353,17 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
               <span>04 WORKS</span>
             </div>
             <div className="productRenderGrid">
-              {productRenderImages.map((image, index) => (
+              {productRenderImages.slice(0, 2).map((image, index) => (
                 <figure className="renderImageCard" key={image}>
                   <img src={image} alt={`产品渲染 ${String(index + 1).padStart(2, '0')}`} />
+                </figure>
+              ))}
+              <div className="renderGridDivider" aria-hidden="true">
+                <span>PRODUCT FORM · MATERIAL · LIGHTING</span>
+              </div>
+              {productRenderImages.slice(2).map((image, index) => (
+                <figure className="renderImageCard" key={image}>
+                  <img src={image} alt={`产品渲染 ${String(index + 3).padStart(2, '0')}`} />
                 </figure>
               ))}
             </div>

@@ -313,10 +313,15 @@ a { color:inherit; text-decoration:none; }
 .renderSectionHeading p,.renderSectionHeading span { margin:0; color:var(--accent); font-size:9px; letter-spacing:.17em; }
 .renderSectionHeading h2 { margin:0; font-size:clamp(40px,4vw,68px); font-weight:500; line-height:1; letter-spacing:-.045em; }
 .renderSectionHeading>span { color:#666970; }
-.creativeRenderGrid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; align-items:start; }
-.productRenderGrid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; align-items:start; }
+.creativeRenderGrid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); column-gap:20px; row-gap:28px; align-items:start; }
+.productRenderGrid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:24px; row-gap:28px; align-items:start; }
 .renderImageCard { margin:0; overflow:hidden; border:1px solid #303238; border-radius:24px; background:#0d0f13; }
 .renderImageCard img { display:block; width:100%; height:auto; }
+.creativeRenderGrid .renderImageCard { aspect-ratio:1500/2963; }
+.productRenderGrid .renderImageCard { aspect-ratio:1; }
+.creativeRenderGrid .renderImageCard img,.productRenderGrid .renderImageCard img { height:100%; object-fit:cover; }
+.renderGridDivider { grid-column:1/-1; display:flex; align-items:center; gap:26px; min-height:118px; margin-block:18px; color:#666970; font-size:9px; letter-spacing:.28em; white-space:nowrap; }
+.renderGridDivider::before,.renderGridDivider::after { height:1px; flex:1; background:#25272c; content:""; }
 .contactScreen { min-height:100svh; display:flex; align-items:stretch; overflow:hidden; background:#090909; color:#f2f3ef; }
 .contactInner { display:flex; flex-direction:column; justify-content:space-between; padding-block:clamp(70px,8vh,120px) 40px; }
 .contactLayout { display:grid; grid-template-columns:1.42fr .58fr; gap:8vw; align-items:center; margin-block:auto; }
@@ -376,7 +381,6 @@ a { color:inherit; text-decoration:none; }
   .pylCaseHeader{grid-template-columns:1fr;padding:54px 40px}
   .brandKvCase{grid-template-columns:minmax(320px,.9fr) minmax(0,1.1fr);gap:42px}
   .brandKvCopy{padding-right:12px}
-  .creativeRenderGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .caseCategoryHeading{align-items:flex-start;flex-direction:column;gap:30px}
   .caseCategoryHeading>p{max-width:760px}
   .pylCaseIdentity>span{margin-top:32px;padding-top:0}
@@ -434,7 +438,8 @@ a { color:inherit; text-decoration:none; }
   .brandKvFooter{align-items:flex-start;flex-direction:column}
   .renderSectionHeading{grid-template-columns:1fr auto;gap:14px 20px;padding-inline:8px}
   .renderSectionHeading p{grid-column:1/-1}
-  .creativeRenderGrid,.productRenderGrid{grid-template-columns:1fr;gap:14px}
+  .creativeRenderGrid,.productRenderGrid{grid-template-columns:1fr;column-gap:14px;row-gap:18px}
+  .renderGridDivider{min-height:82px;margin-block:10px;gap:14px;font-size:8px;letter-spacing:.16em}
   .renderImageCard{border-radius:16px}
   .pylCaseContent{grid-template-columns:1fr;gap:32px}
   .pylPalette{grid-template-columns:1fr 1fr}
