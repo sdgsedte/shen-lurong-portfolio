@@ -43,6 +43,22 @@ const brandKvCases = [
   }
 ];
 
+const creativeRenderImages = [
+  '/images/projects/render-creative-01.jpg',
+  '/images/projects/render-creative-02.jpg',
+  '/images/projects/render-creative-03.jpg',
+  '/images/projects/render-creative-04.jpg',
+  '/images/projects/render-creative-05.jpg',
+  '/images/projects/render-creative-06.jpg'
+];
+
+const productRenderImages = [
+  '/images/projects/product-render-01.jpg',
+  '/images/projects/product-render-02.jpg',
+  '/images/projects/product-render-03.jpg',
+  '/images/projects/product-render-04.jpg'
+];
+
 export function generateStaticParams() {
   return workCategories.map(item => ({ slug: item.slug }));
 }
@@ -61,6 +77,7 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
   const item = getWorkCategory(slug) ?? workCategories[0];
   const isProductDetail = slug === 'product-detail';
   const isBrandKv = slug === 'brand-kv';
+  const is3dRendering = slug === '3d-rendering';
 
   return (
     <main className="workDetailPage">
@@ -70,7 +87,7 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
         <a href="mailto:248612569@qq.com">联系合作 ↗</a>
       </header>
 
-      {!isProductDetail && !isBrandKv && (
+      {!isProductDetail && !isBrandKv && !is3dRendering && (
         <>
           <section className="workDetailHero">
             <div className="workDetailTitle">
@@ -291,6 +308,50 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
               </article>
             ))}
           </div>
+          <a className="pylBackLink" href="/#works">← 返回浏览其他分类</a>
+        </section>
+      ) : is3dRendering ? (
+        <section className="renderStudy" aria-label="三维渲染作品集">
+          <div className="caseCategoryLead">
+            <div className="caseCategoryHeading">
+              <div>
+                <p>05 / {item.english}</p>
+                <h1>{item.title} <i>↘</i></h1>
+                <span>{item.description}</span>
+              </div>
+              <p>{item.intro}</p>
+            </div>
+          </div>
+
+          <section className="renderSection" aria-labelledby="creative-render-title">
+            <div className="renderSectionHeading">
+              <p>01 / CREATIVE POSTERS</p>
+              <h2 id="creative-render-title">三维创意海报</h2>
+              <span>06 WORKS</span>
+            </div>
+            <div className="creativeRenderGrid">
+              {creativeRenderImages.map((image, index) => (
+                <figure className="renderImageCard" key={image}>
+                  <img src={image} alt={`三维创意海报 ${String(index + 1).padStart(2, '0')}`} />
+                </figure>
+              ))}
+            </div>
+          </section>
+
+          <section className="renderSection renderSection--products" aria-labelledby="product-render-title">
+            <div className="renderSectionHeading">
+              <p>02 / PRODUCT RENDERING</p>
+              <h2 id="product-render-title">产品渲染</h2>
+              <span>04 WORKS</span>
+            </div>
+            <div className="productRenderGrid">
+              {productRenderImages.map((image, index) => (
+                <figure className="renderImageCard" key={image}>
+                  <img src={image} alt={`产品渲染 ${String(index + 1).padStart(2, '0')}`} />
+                </figure>
+              ))}
+            </div>
+          </section>
           <a className="pylBackLink" href="/#works">← 返回浏览其他分类</a>
         </section>
       ) : (
