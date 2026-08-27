@@ -1,5 +1,48 @@
 import { getWorkCategory, workCategories } from '../workData';
 
+const brandKvCases = [
+  {
+    index: '01',
+    title: '超级88 KV 视觉',
+    meta: '会员活动 / 节点营销 / 产品组合传播',
+    image: '/images/projects/brand-kv-super88.jpg',
+    heading: '将“88”转化为活动记忆符号',
+    description: '围绕“超级88节”会员活动，将数字 88 放大为通透立体的核心视觉符号，并以礼盒、丝带与多产品组合强化节日感和抽奖利益点。品牌蓝建立清爽可信的主基调，橙红色活动信息形成视觉跳点，让活动名称、会员权益和产品阵容在单张画面中快速完成传达。',
+    keywords: ['活动符号', '会员权益', '产品矩阵'],
+    colors: ['#0AA7E8', '#A9E8FF', '#FF6840']
+  },
+  {
+    index: '02',
+    title: '双12 刘畊宏 KV 视觉',
+    meta: '品牌大使 / 双12大促 / 身材管理主题',
+    image: '/images/projects/brand-kv-liu-genghong.jpg',
+    heading: '以人物势能连接身材管理主题',
+    description: '以刘畊宏健康、自律的公众形象承接“身材管理”传播主题，人物手持产品形成直观使用背书，前景产品阵列进一步强化购买对象。开阔的蓝天与悉尼海港背景呼应品牌澳洲基因，白色运动造型和高明度蓝色共同塑造轻盈、积极且具有行动感的大促视觉。',
+    keywords: ['人物背书', '身材管理', '澳洲基因'],
+    colors: ['#079BE7', '#DDF4FF', '#F3D8A5']
+  },
+  {
+    index: '03',
+    title: '双11 KV 视觉',
+    meta: '双11大促 / 澳洲品牌识别 / 产品组合传播',
+    image: '/images/projects/brand-kv-double11.jpg',
+    heading: '以悉尼地标强化澳洲品牌原点',
+    description: '画面将悉尼歌剧院与海港大桥置于同一海港视野中，用两个具有全球辨识度的标志性建筑建立清晰的澳洲地域锚点，强化品牌来源与可信度。日出暖光、海面倒影和产品陈列形成由远及近的空间层次，既保留澳洲生活方式的轻松氛围，也让双11利益信息与核心产品成为画面焦点。',
+    keywords: ['悉尼歌剧院', '海港大桥', '地域识别'],
+    colors: ['#087DDA', '#A8DEFF', '#FF1744']
+  },
+  {
+    index: '04',
+    title: '王一博官宣 KV',
+    meta: '全球代言人 / 官宣传播 / 品牌升级',
+    image: '/images/projects/brand-kv-wang-yibo.jpg',
+    heading: '以速度光轨塑造年轻化官宣形象',
+    description: '以王一博为绝对视觉中心，通过纵深蓝色空间、环绕光轨与流动线条强化速度感和未来感，呼应代言人的年轻影响力与品牌升级方向。金色官宣标题提升发布仪式感，底部完整产品矩阵承接品牌专业度，让人物声量、官宣信息和产品认知形成清晰的三级传播结构。',
+    keywords: ['代言官宣', '年轻化', '品牌升级'],
+    colors: ['#006DDA', '#80C7FF', '#F2D49A']
+  }
+];
+
 export function generateStaticParams() {
   return workCategories.map(item => ({ slug: item.slug }));
 }
@@ -17,6 +60,7 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
   const { slug } = await params;
   const item = getWorkCategory(slug) ?? workCategories[0];
   const isProductDetail = slug === 'product-detail';
+  const isBrandKv = slug === 'brand-kv';
 
   return (
     <main className="workDetailPage">
@@ -26,7 +70,7 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
         <a href="mailto:248612569@qq.com">联系合作 ↗</a>
       </header>
 
-      {!isProductDetail && (
+      {!isProductDetail && !isBrandKv && (
         <>
           <section className="workDetailHero">
             <div className="workDetailTitle">
@@ -204,6 +248,48 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
               <i className="pylArtworkSegment seniorArtworkSegment pylArtworkSegment2"><img src="/images/projects/senior-probiotic-detail.jpg" alt="" /></i>
               <i className="pylArtworkSegment seniorArtworkSegment pylArtworkSegment3"><img src="/images/projects/senior-probiotic-detail.jpg" alt="" /></i>
             </div>
+          </div>
+          <a className="pylBackLink" href="/#works">← 返回浏览其他分类</a>
+        </section>
+      ) : isBrandKv ? (
+        <section className="brandKvStudy" aria-label="品牌 KV 视觉案例">
+          <div className="caseCategoryLead">
+            <div className="caseCategoryHeading">
+              <div>
+                <p>01 / {item.english}</p>
+                <h1>{item.title} <i>↘</i></h1>
+                <span>{item.description}</span>
+              </div>
+              <p>{item.intro}</p>
+            </div>
+          </div>
+
+          <div className="brandKvList">
+            {brandKvCases.map(project => (
+              <article className="brandKvCase" key={project.index}>
+                <div className="brandKvImage">
+                  <img src={project.image} alt={project.title} />
+                </div>
+                <div className="brandKvCopy">
+                  <p className="brandKvIndex">{project.index} / BRAND KEY VISUAL</p>
+                  <h2>{project.title}</h2>
+                  <span className="brandKvMeta">{project.meta}</span>
+                  <div className="brandKvStrategy">
+                    <span>VISUAL STRATEGY / 视觉策略</span>
+                    <h3>{project.heading}</h3>
+                    <p>{project.description}</p>
+                  </div>
+                  <div className="brandKvFooter">
+                    <div className="brandKvKeywords">
+                      {project.keywords.map(keyword => <span key={keyword}>{keyword}</span>)}
+                    </div>
+                    <div className="brandKvColors" aria-label={`${project.title}配色`}>
+                      {project.colors.map(color => <i key={color} style={{ background: color }} title={color} />)}
+                    </div>
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
           <a className="pylBackLink" href="/#works">← 返回浏览其他分类</a>
         </section>
