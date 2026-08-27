@@ -1,4 +1,5 @@
 import { getWorkCategory, workCategories } from '../workData';
+import HomepageCaseStudy from '../../components/HomepageCaseStudy';
 
 const brandKvCases = [
   {
@@ -88,6 +89,7 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
   const isBrandKv = slug === 'brand-kv';
   const is3dRendering = slug === '3d-rendering';
   const isLivestream = slug === 'livestream';
+  const isStoreHome = slug === 'store-home';
 
   return (
     <main className="workDetailPage">
@@ -97,7 +99,7 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
         <a href="mailto:248612569@qq.com">联系合作 ↗</a>
       </header>
 
-      {!isProductDetail && !isBrandKv && !is3dRendering && !isLivestream && (
+      {!isProductDetail && !isBrandKv && !is3dRendering && !isLivestream && !isStoreHome && (
         <>
           <section className="workDetailHero">
             <div className="workDetailTitle">
@@ -117,7 +119,9 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
         </>
       )}
 
-      {isProductDetail ? (
+      {isStoreHome ? (
+        <HomepageCaseStudy />
+      ) : isProductDetail ? (
         <section className="pylCaseStudy" aria-label="益生菌详情页设计案例">
           <div className="caseCategoryLead">
             <div className="caseCategoryHeading">
