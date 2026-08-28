@@ -379,6 +379,16 @@ a { color:inherit; text-decoration:none; }
 .homepageProductRowLabel span { color:var(--accent); font-size:8px; letter-spacing:.18em; }
 .homepageProductRowLabel b { color:#d9dad7; font-size:12px; font-weight:500; letter-spacing:.08em; }
 .homepageProductRow .homepageCarouselControls { margin-top:16px; }
+.storeProjects { width:min(1280px,100%); margin:clamp(84px,9vw,140px) auto 0; }
+.storeProject { position:relative; padding-top:clamp(54px,6vw,86px); border-top:1px solid #292c31; }
+.storeProject:first-child { padding-top:0; border-top:0; }
+.storeProject + .storeProject { margin-top:clamp(72px,8vw,120px); }
+.storeProject--grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; align-items:start; }
+.storeProject--single { display:block; }
+.storeProject--left { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; align-items:start; }
+.storeProjectImage { margin:0; overflow:hidden; border:1px solid #303238; border-radius:22px; background:#0b0e12; box-shadow:0 24px 80px rgb(0 0 0 / 22%); }
+.storeProjectImage img { display:block; width:100%; height:auto; }
+.storeProjectImage--wide { width:100%; }
 .contactScreen { min-height:100svh; display:flex; align-items:stretch; overflow:hidden; background:#090909; color:#f2f3ef; }
 .contactInner { display:flex; flex-direction:column; justify-content:space-between; padding-block:clamp(70px,8vh,120px) 40px; }
 .contactLayout { display:grid; grid-template-columns:1.42fr .58fr; gap:8vw; align-items:center; margin-block:auto; }
@@ -518,6 +528,11 @@ a { color:inherit; text-decoration:none; }
   .homepageProductRows{gap:12px}
   .homepageProductRow{padding:10px;border-radius:16px}
   .homepageProductRowLabel{padding:4px 4px 12px}
+  .storeProjects{margin-top:64px}
+  .storeProject--grid,.storeProject--left{grid-template-columns:1fr;gap:12px}
+  .storeProject+.storeProject{margin-top:64px}
+  .storeProject{padding-top:44px}
+  .storeProjectImage{border-radius:14px}
   .renderGridDivider{min-height:82px;margin-block:10px;gap:14px;font-size:8px;letter-spacing:.16em}
   .renderImageCard,.livestreamCard{border-radius:16px}
   .pylCaseContent{grid-template-columns:1fr;gap:32px}
