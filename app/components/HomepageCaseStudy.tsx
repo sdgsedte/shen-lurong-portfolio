@@ -53,9 +53,12 @@ const kvSlides: Slide[] = [
   { src: '/images/projects/38-homepage/kv-wang-yibo.webp', alt: '王一博焕新周主视觉', label: '王一博超感焕活 KV' },
 ];
 
-const productSlides: Slide[] = [
+const productSlidesOne: Slide[] = [
   { src: '/images/projects/38-homepage/product-320.webp', alt: '320 亿广谱益生菌首页产品模块', label: '320 亿广谱益生菌' },
   { src: '/images/projects/38-homepage/product-pyl.webp', alt: 'PYL100 超舒益生菌首页产品模块', label: 'PYL100 超舒益生菌' },
+];
+
+const productSlidesTwo: Slide[] = [
   { src: '/images/projects/38-homepage/product-b420-3.webp', alt: 'B420 3.0 益生菌首页产品模块', label: 'B420 3.0 超燃益生菌' },
   { src: '/images/projects/38-homepage/product-b420-s600.webp', alt: 'B420 与 S600 组合首页产品模块', label: 'B420 + S600 组合' },
 ];
@@ -90,38 +93,48 @@ export default function HomepageCaseStudy() {
         </div>
       </div>
 
-      <section className="homepageModule" aria-labelledby="homepage-kv-title">
-        <div className="homepageModuleHeading">
-          <div><span>01 / KEY VISUAL SYSTEM</span><h3 id="homepage-kv-title">核心视觉轮播</h3></div>
-          <p>产品组合与代言人双 KV 共同承接活动主题，建立统一的首页第一视觉。</p>
-        </div>
-        <CaseCarousel slides={kvSlides} label="38 焕新周核心视觉轮播" variant="kv" />
-      </section>
+      <div className="homepageContinuousPage">
+        <section className="homepageModule" aria-labelledby="homepage-kv-title">
+          <div className="homepageModuleHeading">
+            <div><span>01 / KEY VISUAL SYSTEM</span><h3 id="homepage-kv-title">核心视觉轮播</h3></div>
+            <p>产品组合与代言人双 KV 共同承接活动主题，建立统一的首页第一视觉。</p>
+          </div>
+          <CaseCarousel slides={kvSlides} label="38 焕新周核心视觉轮播" variant="kv" />
+        </section>
 
-      <section className="homepageModule" aria-labelledby="homepage-operation-title">
-        <div className="homepageModuleHeading">
-          <div><span>02 / MEMBER & LIVE CONTENT</span><h3 id="homepage-operation-title">会员与直播承接</h3></div>
-          <p>用权益模块降低决策成本，并通过直播入口继续承接人群与商品内容。</p>
-        </div>
-        <div className="homepageOperationGrid">
-          <figure className="homepageOperationCard homepageOperationCard--wide">
-            <img src="/images/projects/38-homepage/member-benefits.webp" alt="会员充值、消费券与会员礼权益模块" loading="lazy" decoding="async" />
-            <figcaption><span>MEMBER BENEFITS</span><b>会员尊享 · 券礼宠粉</b></figcaption>
-          </figure>
-          <figure className="homepageOperationCard">
-            <img src="/images/projects/38-homepage/livestream-entry.webp" alt="直播间专属礼与产品选购入口" loading="lazy" decoding="async" />
-            <figcaption><span>LIVE COMMERCE</span><b>直播间专属礼</b></figcaption>
-          </figure>
-        </div>
-      </section>
+        <section className="homepageModule" aria-labelledby="homepage-operation-title">
+          <div className="homepageModuleHeading homepageModuleHeading--compact">
+            <div><span>02 / MEMBER & LIVE CONTENT</span><h3 id="homepage-operation-title">会员权益与直播入口</h3></div>
+          </div>
+          <div className="homepageOperationGrid">
+            <figure className="homepageOperationCard">
+              <img src="/images/projects/38-homepage/member-benefits.webp" alt="会员充值、消费券与会员礼权益模块" loading="lazy" decoding="async" />
+              <figcaption><span>MEMBER BENEFITS</span><b>会员尊享 · 券礼宠粉</b></figcaption>
+            </figure>
+            <figure className="homepageOperationCard">
+              <img src="/images/projects/38-homepage/livestream-entry.webp" alt="直播间专属礼与产品选购入口" loading="lazy" decoding="async" />
+              <figcaption><span>LIVE COMMERCE</span><b>直播间专属礼</b></figcaption>
+            </figure>
+          </div>
+        </section>
 
-      <section className="homepageModule" aria-labelledby="homepage-product-title">
-        <div className="homepageModuleHeading">
-          <div><span>03 / PRODUCT MATRIX</span><h3 id="homepage-product-title">核心产品轮播</h3></div>
-          <p>以统一的花境、展台和权益结构组织四组产品，让用户快速完成品类识别与选购。</p>
-        </div>
-        <CaseCarousel slides={productSlides} label="38 焕新周核心产品轮播" variant="product" />
-      </section>
+        <section className="homepageModule" aria-labelledby="homepage-product-title">
+          <div className="homepageModuleHeading">
+            <div><span>03 / PRODUCT MATRIX</span><h3 id="homepage-product-title">核心产品轮播</h3></div>
+            <p>两排产品分别呈现日常肠胃养护与轻体管理，让不同需求的浏览路径更清晰。</p>
+          </div>
+          <div className="homepageProductRows">
+            <div className="homepageProductRow">
+              <div className="homepageProductRowLabel"><span>PRODUCT SERIES 01</span><b>日常肠胃养护</b></div>
+              <CaseCarousel slides={productSlidesOne} label="日常肠胃养护产品轮播" variant="product" />
+            </div>
+            <div className="homepageProductRow">
+              <div className="homepageProductRowLabel"><span>PRODUCT SERIES 02</span><b>轻体管理组合</b></div>
+              <CaseCarousel slides={productSlidesTwo} label="轻体管理产品轮播" variant="product" />
+            </div>
+          </div>
+        </section>
+      </div>
 
       <a className="pylBackLink" href="/#works">← 返回浏览其他分类</a>
     </section>
