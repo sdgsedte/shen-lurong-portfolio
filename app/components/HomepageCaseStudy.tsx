@@ -49,21 +49,35 @@ export default function HomepageCaseStudy() {
         </section>
 
         <section className="storeProject storeProject--single" aria-label="万火官旗新年首页">
+          <div className="storeProjectIntro">
+            <div><span>02 / FESTIVAL HOMEPAGE</span><h3>万火官旗新年首页</h3></div>
+            <p>围绕“回家有道，喜迎新年”的主题，以月夜、门楼、灯笼与团圆宴席构建春节场景。金红色作为视觉核心，结合品牌角色的互动叙事，将节日祝福、产品氛围与品牌温度融入同一幅主视觉。</p>
+          </div>
           <figure className="storeProjectImage storeProjectImage--wide">
             <img src="/images/projects/store-home/wanhuo-new-year.webp" alt="万火官旗过年主题首页视觉" loading="lazy" decoding="async" />
           </figure>
         </section>
 
-        <section className="storeProject storeProject--left" aria-label="万火双12首页">
-          <figure className="storeProjectImage">
-            <img src="/images/projects/store-home/wanhuo-double12.webp" alt="万火双12店铺首页视觉" loading="lazy" decoding="async" />
-          </figure>
-        </section>
+        <section className="storeProject storeProject--pair" aria-label="万火双12与1688首页">
+          <article className="storeProjectCard">
+            <div className="storeProjectIntro storeProjectIntro--card">
+              <div><span>03 / CAMPAIGN HOMEPAGE</span><h3>万火双12首页</h3></div>
+              <p>以蓝紫霓虹和机械猫舞台打造年终盛典氛围，将主推产品、折扣权益与直播入口连续组织，强化双12大促的速度感、科技感与购买节奏。</p>
+            </div>
+            <figure className="storeProjectImage">
+              <img src="/images/projects/store-home/wanhuo-double12.webp" alt="万火双12店铺首页视觉" loading="lazy" decoding="async" />
+            </figure>
+          </article>
 
-        <section className="storeProject storeProject--left" aria-label="万火1688首页">
-          <figure className="storeProjectImage">
-            <img src="/images/projects/store-home/wanhuo-1688.webp" alt="万火1688店铺首页视觉" loading="lazy" decoding="async" />
-          </figure>
+          <article className="storeProjectCard">
+            <div className="storeProjectIntro storeProjectIntro--card">
+              <div><span>04 / BRAND HOMEPAGE</span><h3>万火1688首页</h3></div>
+              <p>以暖金色建立品牌与制造实力的专业印象，通过工厂规模、定制流程、合作品牌、资质认证与产品案例，形成从企业背书到产品展示的完整浏览路径。</p>
+            </div>
+            <figure className="storeProjectImage">
+              <img src="/images/projects/store-home/wanhuo-1688.webp" alt="万火1688店铺首页视觉" loading="lazy" decoding="async" />
+            </figure>
+          </article>
         </section>
       </div>
 
