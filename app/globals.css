@@ -579,3 +579,76 @@ a { color:inherit; text-decoration:none; }
   .heroSceneNight{display:none;animation:none}
   .seasonParticles{display:none}
 }
+
+/* Liquid background + pointer-aware border treatment */
+body { position:relative; background:transparent; }
+body > main { position:relative; z-index:1; }
+.siteLiquidBackground {
+  position:fixed;
+  z-index:0;
+  inset:0;
+  width:100vw;
+  height:100svh;
+  overflow:hidden;
+  pointer-events:none;
+  opacity:.58;
+  background:#05030d;
+  filter:saturate(.9) contrast(1.05);
+}
+.siteLiquidBackground::after {
+  position:absolute;
+  inset:0;
+  content:"";
+  background:linear-gradient(180deg,rgb(5 4 12 / 32%),rgb(5 5 8 / 68%));
+  pointer-events:none;
+}
+.siteLiquidBackground .liquid-ether-container { position:absolute; inset:0; }
+.about,.works,.strengths { background:rgb(7 7 9 / 90%); }
+.workDetailPage { background:rgb(7 8 10 / 86%); }
+
+.hasBorderGlow {
+  --glow-angle:0deg;
+  --glow-proximity:0;
+  --glow-x:50%;
+  --glow-y:50%;
+  isolation:isolate;
+}
+.borderGlowLayer {
+  position:absolute;
+  z-index:8;
+  inset:-1px;
+  display:block;
+  border:1px solid transparent;
+  border-radius:inherit;
+  pointer-events:none;
+  opacity:calc(.12 + var(--glow-proximity) * .88);
+  background:
+    radial-gradient(circle 135px at var(--glow-x) var(--glow-y),rgb(255 255 255 / 92%) 0%,rgb(255 159 252 / 72%) 24%,transparent 64%) border-box,
+    conic-gradient(from var(--glow-angle),transparent 0deg,#5227ff 35deg,#ff9ffc 72deg,#b497cf 108deg,transparent 150deg) border-box;
+  -webkit-mask:linear-gradient(#000 0 0) padding-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  transition:opacity .22s ease;
+}
+.borderGlowLayer::after {
+  position:absolute;
+  inset:-2px;
+  border-radius:inherit;
+  content:"";
+  opacity:calc(.08 + var(--glow-proximity) * .82);
+  box-shadow:
+    0 0 10px rgb(82 39 255 / 48%),
+    0 0 26px rgb(255 159 252 / 28%),
+    inset 0 0 12px rgb(180 151 207 / 20%);
+  transition:opacity .22s ease;
+}
+.hasBorderGlow.borderGlowActive .borderGlowLayer { opacity:calc(.25 + var(--glow-proximity) * .75); }
+
+@media(max-width:900px){
+  .siteLiquidBackground{opacity:.42}
+  .borderGlowLayer{opacity:.18}
+}
+@media(prefers-reduced-motion:reduce){
+  .siteLiquidBackground{display:none}
+  .borderGlowLayer,.borderGlowLayer::after{transition:none}
+}

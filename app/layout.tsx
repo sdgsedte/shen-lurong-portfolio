@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import SiteEffects from './components/SiteEffects';
 
 export const metadata: Metadata = {
   title: '沈路荣｜视觉设计师作品集',
@@ -7,5 +8,12 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="zh-CN"><body>{children}</body></html>;
+  return (
+    <html lang="zh-CN">
+      <body>
+        <SiteEffects />
+        {children}
+      </body>
+    </html>
+  );
 }
