@@ -70,6 +70,14 @@ const livestreamCases = [
   { title: '代言人续约直播视觉', image: '/images/projects/livestream-ambassador-renewal.jpg' }
 ];
 
+const productDetailProjects = [
+  { href: '#project-pyl100', label: 'PYL100' },
+  { href: '#project-lpb27', label: '600亿益生菌' },
+  { href: '#project-senior', label: '中老年益生菌' },
+  { href: '#project-aroma-device', label: '车载香薰仪' },
+  { href: '#project-aroma-refill', label: '车载香薰' }
+];
+
 export function generateStaticParams() {
   return workCategories.map(item => ({ slug: item.slug }));
 }
@@ -94,9 +102,15 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
 
   return (
     <main className="workDetailPage">
-      <header className="workDetailNav">
+      <header className={`workDetailNav${isProductDetail ? ' workDetailNav--projects' : ''}`}>
         <ReturnToWorksLink className="backButton"><span>←</span> 返回作品分类</ReturnToWorksLink>
-        <span>SHEN LURONG / PORTFOLIO</span>
+        {isProductDetail ? (
+          <nav className="workProjectNav" aria-label="产品详情页项目导航">
+            {productDetailProjects.map(project => (
+              <a key={project.href} href={project.href}>{project.label}</a>
+            ))}
+          </nav>
+        ) : <span>SHEN LURONG / PORTFOLIO</span>}
         <a href="mailto:248612569@qq.com">联系合作 ↗</a>
       </header>
 
@@ -135,7 +149,7 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
             </div>
           </div>
 
-          <div className="pylCaseHeader">
+          <div className="pylCaseHeader" id="project-pyl100">
             <div className="pylCaseIdentity">
               <p>01 / E-COMMERCE DESIGN</p>
               <h2>PYL100<br />益生菌</h2>
@@ -171,7 +185,7 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
             </div>
           </div>
 
-          <div className="pylCaseHeader pylCaseHeader--second">
+          <div className="pylCaseHeader pylCaseHeader--second" id="project-lpb27">
             <div className="pylCaseIdentity">
               <p>02 / E-COMMERCE DESIGN</p>
               <h2>600亿<br />益生菌</h2>
@@ -210,9 +224,45 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
             </div>
           </div>
 
-          <div className="pylCaseHeader pylCaseHeader--second">
+          <div className="pylCaseHeader pylCaseHeader--second" id="project-senior">
             <div className="pylCaseIdentity">
               <p>03 / E-COMMERCE DESIGN</p>
+              <h2>中老年<br />益生菌</h2>
+              <span>详情页视觉设计 / 中老年肠道养护品类</span>
+            </div>
+
+            <div className="pylCaseContent">
+              <article>
+                <span>PRODUCT BENEFIT / 产品功效</span>
+                <h3>面向中老年人群的日常肠道守护</h3>
+                <p>围绕年龄增长带来的肠道菌群变化与日常排便管理需求，以适龄益生菌组合为核心信息，传达补充有益菌、维持菌群平衡和支持消化状态的产品价值，为长辈提供温和、持续且易理解的日常肠道养护方案。</p>
+              </article>
+              <article>
+                <span>DESIGN CONCEPT / 设计思路</span>
+                <h3>清透蓝 × 温和守护 × 科学可信</h3>
+                <p>视觉以清透蓝建立洁净、安心的健康氛围，通过柔和光环、透明气泡、胶囊与流动水感表现益生菌活力和温和养护。人物生活场景增强长辈人群的代入感，金色点缀传达关怀与品质；页面采用更清晰的字号、对比和分段结构，将人群需求、配方依据与食用信息逐层呈现，兼顾科学感与适老阅读体验。</p>
+              </article>
+              <div className="pylPalette" aria-label="项目色彩系统">
+                <div><i style={{ background: '#14B7E7' }} /><span>主色<br /><b>#14B7E7</b></span></div>
+                <div><i style={{ background: '#86E2F5' }} /><span>辅助色<br /><b>#86E2F5</b></span></div>
+                <div><i style={{ background: '#FFFFFF' }} /><span>信息色<br /><b>#FFFFFF</b></span></div>
+                <div><i style={{ background: '#F5C862' }} /><span>点缀色<br /><b>#F5C862</b></span></div>
+              </div>
+            </div>
+          </div>
+
+          <div className="pylArtwork pylArtwork--senior">
+            <div className="pylArtworkLabel"><span>FULL DETAIL PAGE</span><b>完整详情页展示</b></div>
+            <div className="pylArtworkGrid" role="img" aria-label="中老年益生菌电商详情页，按顺序分为三列展示">
+              <i className="pylArtworkSegment seniorArtworkSegment pylArtworkSegment1"><img src="/images/projects/senior-probiotic-detail.jpg" alt="" /></i>
+              <i className="pylArtworkSegment seniorArtworkSegment pylArtworkSegment2"><img src="/images/projects/senior-probiotic-detail.jpg" alt="" /></i>
+              <i className="pylArtworkSegment seniorArtworkSegment pylArtworkSegment3"><img src="/images/projects/senior-probiotic-detail.jpg" alt="" /></i>
+            </div>
+          </div>
+
+          <div className="pylCaseHeader pylCaseHeader--second" id="project-aroma-device">
+            <div className="pylCaseIdentity">
+              <p>04 / E-COMMERCE DESIGN</p>
               <h2>车载<br />香薰仪</h2>
               <span>详情页视觉设计 / 智能车载香氛品类</span>
             </div>
@@ -246,39 +296,39 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
             </div>
           </div>
 
-          <div className="pylCaseHeader pylCaseHeader--second">
+          <div className="pylCaseHeader pylCaseHeader--second" id="project-aroma-refill">
             <div className="pylCaseIdentity">
-              <p>04 / E-COMMERCE DESIGN</p>
-              <h2>中老年<br />益生菌</h2>
-              <span>详情页视觉设计 / 中老年肠道养护品类</span>
+              <p>05 / E-COMMERCE DESIGN</p>
+              <h2>车载<br />香薰</h2>
+              <span>详情页视觉设计 / 车载香氛补充液品类</span>
             </div>
 
             <div className="pylCaseContent">
               <article>
                 <span>PRODUCT BENEFIT / 产品功效</span>
-                <h3>面向中老年人群的日常肠道守护</h3>
-                <p>围绕年龄增长带来的肠道菌群变化与日常排便管理需求，以适龄益生菌组合为核心信息，传达补充有益菌、维持菌群平衡和支持消化状态的产品价值，为长辈提供温和、持续且易理解的日常肠道养护方案。</p>
+                <h3>160ml 大容量，多香型持久扩香</h3>
+                <p>围绕车内异味、持续留香与香型选择需求，以大容量香氛补充液、植物香调和多种气味选择为核心卖点。产品适配日常通勤与长途驾驶场景，通过稳定释放香气改善座舱环境，让车内香氛体验更持久、更自然，也更便于按喜好更换。</p>
               </article>
               <article>
                 <span>DESIGN CONCEPT / 设计思路</span>
-                <h3>清透蓝 × 温和守护 × 科学可信</h3>
-                <p>视觉以清透蓝建立洁净、安心的健康氛围，通过柔和光环、透明气泡、胶囊与流动水感表现益生菌活力和温和养护。人物生活场景增强长辈人群的代入感，金色点缀传达关怀与品质；页面采用更清晰的字号、对比和分段结构，将人群需求、配方依据与食用信息逐层呈现，兼顾科学感与适老阅读体验。</p>
+                <h3>深海蓝 × 植物萃取 × 香型矩阵</h3>
+                <p>页面以深海蓝延续车载香氛的专业与高级质感，搭配植物绿、花材与透明液体元素传达自然萃取和清新气味。产品瓶与真实座舱场景交替出现，建立从配方、容量到车内使用的完整联想；后段以统一卡片系统呈现多种香型，让不同气味的色彩和原料特征清晰区分，兼顾信息密度与浏览节奏。</p>
               </article>
               <div className="pylPalette" aria-label="项目色彩系统">
-                <div><i style={{ background: '#14B7E7' }} /><span>主色<br /><b>#14B7E7</b></span></div>
-                <div><i style={{ background: '#86E2F5' }} /><span>辅助色<br /><b>#86E2F5</b></span></div>
-                <div><i style={{ background: '#FFFFFF' }} /><span>信息色<br /><b>#FFFFFF</b></span></div>
-                <div><i style={{ background: '#F5C862' }} /><span>点缀色<br /><b>#F5C862</b></span></div>
+                <div><i style={{ background: '#082D50' }} /><span>主色<br /><b>#082D50</b></span></div>
+                <div><i style={{ background: '#0C70B8' }} /><span>辅助色<br /><b>#0C70B8</b></span></div>
+                <div><i style={{ background: '#66A85C' }} /><span>植物色<br /><b>#66A85C</b></span></div>
+                <div><i style={{ background: '#E4C56A' }} /><span>点缀色<br /><b>#E4C56A</b></span></div>
               </div>
             </div>
           </div>
 
-          <div className="pylArtwork pylArtwork--senior">
+          <div className="pylArtwork pylArtwork--aroma-refill">
             <div className="pylArtworkLabel"><span>FULL DETAIL PAGE</span><b>完整详情页展示</b></div>
-            <div className="pylArtworkGrid" role="img" aria-label="中老年益生菌电商详情页，按顺序分为三列展示">
-              <i className="pylArtworkSegment seniorArtworkSegment pylArtworkSegment1"><img src="/images/projects/senior-probiotic-detail.jpg" alt="" /></i>
-              <i className="pylArtworkSegment seniorArtworkSegment pylArtworkSegment2"><img src="/images/projects/senior-probiotic-detail.jpg" alt="" /></i>
-              <i className="pylArtworkSegment seniorArtworkSegment pylArtworkSegment3"><img src="/images/projects/senior-probiotic-detail.jpg" alt="" /></i>
+            <div className="pylArtworkGrid" role="img" aria-label="车载香薰补充液电商详情页，按顺序分为三列展示">
+              <i className="pylArtworkSegment aromaRefillArtworkSegment pylArtworkSegment1"><img src="/images/projects/car-aroma-refill-01.webp" alt="" loading="lazy" decoding="async" /></i>
+              <i className="pylArtworkSegment aromaRefillArtworkSegment pylArtworkSegment2"><img src="/images/projects/car-aroma-refill-02.webp" alt="" loading="lazy" decoding="async" /></i>
+              <i className="pylArtworkSegment aromaRefillArtworkSegment pylArtworkSegment3"><img src="/images/projects/car-aroma-refill-03.webp" alt="" loading="lazy" decoding="async" /></i>
             </div>
           </div>
           <ReturnToWorksLink className="pylBackLink">← 返回浏览其他分类</ReturnToWorksLink>
