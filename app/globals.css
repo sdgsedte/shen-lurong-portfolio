@@ -591,20 +591,86 @@ body > main { position:relative; z-index:1; }
   height:100svh;
   overflow:hidden;
   pointer-events:none;
-  opacity:.58;
-  background:#05030d;
-  filter:saturate(.9) contrast(1.05);
+  opacity:.88;
+  background:#04020a;
+  filter:saturate(1.14) contrast(1.08);
 }
 .siteLiquidBackground::after {
   position:absolute;
   inset:0;
   content:"";
-  background:linear-gradient(180deg,rgb(5 4 12 / 32%),rgb(5 5 8 / 68%));
+  background:
+    radial-gradient(circle at 18% 28%,rgb(82 39 255 / 8%),transparent 38%),
+    linear-gradient(180deg,rgb(5 4 12 / 14%),rgb(5 5 8 / 42%));
   pointer-events:none;
 }
 .siteLiquidBackground .liquid-ether-container { position:absolute; inset:0; }
-.about,.works,.strengths { background:rgb(7 7 9 / 90%); }
-.workDetailPage { background:rgb(7 8 10 / 86%); }
+.about,.strengths {
+  background:linear-gradient(180deg,rgb(7 7 9 / 78%),rgb(7 7 9 / 66%));
+  backdrop-filter:blur(1.5px);
+}
+.works {
+  background:
+    radial-gradient(circle at 78% 12%,rgb(82 39 255 / 10%),transparent 34%),
+    linear-gradient(180deg,rgb(7 7 9 / 68%),rgb(6 5 9 / 54%));
+  backdrop-filter:blur(1px);
+}
+.contactScreen { background:linear-gradient(180deg,rgb(9 9 9 / 72%),rgb(5 4 8 / 58%)); }
+.workDetailPage { background:rgb(7 8 10 / 76%); }
+
+/* Category cards deliberately reveal the moving liquid layer through their dark glass panel. */
+.workCategoryCard {
+  --card-x:50%;
+  --card-y:50%;
+  --card-tilt-x:0deg;
+  --card-tilt-y:0deg;
+  --card-lift:0px;
+  --media-shift-x:0px;
+  --media-shift-y:0px;
+  background:linear-gradient(132deg,rgb(15 18 22 / 92%),rgb(7 8 12 / 68%));
+  box-shadow:0 28px 90px rgb(0 0 0 / 34%),inset 0 1px 0 rgb(255 255 255 / 5%);
+  transform:perspective(1500px) translateY(var(--card-lift)) rotateX(var(--card-tilt-x)) rotateY(var(--card-tilt-y));
+  transform-style:preserve-3d;
+  transition:transform .38s cubic-bezier(.2,.8,.2,1),box-shadow .38s ease,border-color .38s ease,opacity .7s ease;
+  will-change:transform;
+}
+.workCategoryCard::before {
+  position:absolute;
+  z-index:2;
+  inset:0;
+  content:"";
+  pointer-events:none;
+  opacity:.34;
+  background:
+    radial-gradient(circle 280px at var(--card-x) var(--card-y),rgb(255 159 252 / 22%),transparent 64%),
+    linear-gradient(110deg,transparent 28%,rgb(255 255 255 / 8%) 48%,transparent 66%);
+  mix-blend-mode:screen;
+  transition:opacity .35s ease;
+}
+.workCategoryCard:hover {
+  --card-lift:-7px;
+  border-color:rgb(180 151 207 / 48%);
+  box-shadow:0 38px 110px rgb(0 0 0 / 44%),0 0 42px rgb(82 39 255 / 14%),inset 0 1px 0 rgb(255 255 255 / 10%);
+}
+.workCategoryCard:hover::before { opacity:.78; }
+.workCategoryMedia,.workCategoryIndex,.workCategoryCopy,.workCategoryCard>b { z-index:3; }
+.workCategoryMedia>img {
+  transform:translate3d(var(--media-shift-x),var(--media-shift-y),0) scale(1.035);
+  transition:transform .5s cubic-bezier(.2,.75,.2,1),filter .5s ease;
+  will-change:transform;
+}
+.workCategoryCard:hover .workCategoryMedia>img {
+  transform:translate3d(var(--media-shift-x),var(--media-shift-y),0) scale(1.075);
+  filter:saturate(1.08) contrast(1.03);
+}
+.workCategoryIndex,.workCategoryCopy,.workCategoryCard>b { transform:translateZ(24px); }
+.categoryRevealPending { opacity:0; --card-lift:34px; }
+.categoryRevealPending.categoryRevealVisible {
+  opacity:1;
+  --card-lift:0px;
+  transition-delay:var(--category-delay),var(--category-delay),var(--category-delay),var(--category-delay),var(--category-delay);
+}
+.categoryRevealPending.categoryRevealVisible:hover { --card-lift:-7px; }
 
 .hasBorderGlow {
   --glow-angle:0deg;
@@ -645,10 +711,15 @@ body > main { position:relative; z-index:1; }
 .hasBorderGlow.borderGlowActive .borderGlowLayer { opacity:calc(.25 + var(--glow-proximity) * .75); }
 
 @media(max-width:900px){
-  .siteLiquidBackground{opacity:.42}
+  .siteLiquidBackground{opacity:.62}
   .borderGlowLayer{opacity:.18}
+  .workCategoryCard{transform:none}
+  .categoryRevealPending{--card-lift:20px}
+  .categoryRevealPending.categoryRevealVisible{--card-lift:0px}
 }
 @media(prefers-reduced-motion:reduce){
-  .siteLiquidBackground{display:none}
+  .siteLiquidBackground{opacity:.46}
   .borderGlowLayer,.borderGlowLayer::after{transition:none}
+  .workCategoryCard,.workCategoryMedia>img{transition:none;transform:none}
+  .categoryRevealPending{opacity:1}
 }

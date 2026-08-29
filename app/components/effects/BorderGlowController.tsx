@@ -44,6 +44,24 @@ export default function BorderGlowController() {
   useEffect(() => {
     decorate();
 
+    const categoryCards = Array.from(document.querySelectorAll<HTMLElement>('.workCategoryCard'));
+    categoryCards.forEach((card, index) => {
+      card.classList.add('categoryRevealPending');
+      card.style.setProperty('--category-delay', `${Math.min(index * 90, 360)}ms`);
+    });
+
+    const revealObserver = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          (entry.target as HTMLElement).classList.add('categoryRevealVisible');
+          revealObserver.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.16, rootMargin: '0px 0px -6% 0px' }
+    );
+    categoryCards.forEach(card => revealObserver.observe(card));
+
     const observer = new MutationObserver(records => {
       records.forEach(record => {
         record.addedNodes.forEach(node => {
@@ -57,10 +75,38 @@ export default function BorderGlowController() {
     observer.observe(document.body, { childList: true, subtree: true });
 
     let active: HTMLElement | null = null;
+    let activeCategory: HTMLElement | null = null;
+    let motionFrame = 0;
     const handlePointerMove = (event: PointerEvent) => {
       const target = event.target instanceof Element
         ? event.target.closest<HTMLElement>(GLOW_TARGETS)
         : null;
+
+      const category = event.target instanceof Element
+        ? event.target.closest<HTMLElement>('.workCategoryCard')
+        : null;
+
+      if (category) {
+        activeCategory = category;
+        const categoryRect = category.getBoundingClientRect();
+        const normalizedX = Math.max(0, Math.min(1, (event.clientX - categoryRect.left) / categoryRect.width));
+        const normalizedY = Math.max(0, Math.min(1, (event.clientY - categoryRect.top) / categoryRect.height));
+        cancelAnimationFrame(motionFrame);
+        motionFrame = requestAnimationFrame(() => {
+          category.style.setProperty('--card-x', `${(normalizedX * 100).toFixed(2)}%`);
+          category.style.setProperty('--card-y', `${(normalizedY * 100).toFixed(2)}%`);
+          category.style.setProperty('--card-tilt-x', `${((0.5 - normalizedY) * 1.8).toFixed(2)}deg`);
+          category.style.setProperty('--card-tilt-y', `${((normalizedX - 0.5) * 1.8).toFixed(2)}deg`);
+          category.style.setProperty('--media-shift-x', `${((normalizedX - 0.5) * -12).toFixed(2)}px`);
+          category.style.setProperty('--media-shift-y', `${((normalizedY - 0.5) * -8).toFixed(2)}px`);
+        });
+      } else if (activeCategory) {
+        activeCategory.style.removeProperty('--card-tilt-x');
+        activeCategory.style.removeProperty('--card-tilt-y');
+        activeCategory.style.removeProperty('--media-shift-x');
+        activeCategory.style.removeProperty('--media-shift-y');
+        activeCategory = null;
+      }
 
       if (!target) {
         active?.classList.remove('borderGlowActive');
@@ -91,7 +137,12 @@ export default function BorderGlowController() {
 
     const handlePointerLeave = () => {
       active?.classList.remove('borderGlowActive');
+      activeCategory?.style.removeProperty('--card-tilt-x');
+      activeCategory?.style.removeProperty('--card-tilt-y');
+      activeCategory?.style.removeProperty('--media-shift-x');
+      activeCategory?.style.removeProperty('--media-shift-y');
       active = null;
+      activeCategory = null;
     };
 
     window.addEventListener('pointermove', handlePointerMove, { passive: true });
@@ -99,8 +150,20 @@ export default function BorderGlowController() {
 
     return () => {
       observer.disconnect();
+      revealObserver.disconnect();
+      cancelAnimationFrame(motionFrame);
       window.removeEventListener('pointermove', handlePointerMove);
       document.documentElement.removeEventListener('pointerleave', handlePointerLeave);
+      categoryCards.forEach(card => {
+        card.classList.remove('categoryRevealPending', 'categoryRevealVisible');
+        card.style.removeProperty('--category-delay');
+        card.style.removeProperty('--card-x');
+        card.style.removeProperty('--card-y');
+        card.style.removeProperty('--card-tilt-x');
+        card.style.removeProperty('--card-tilt-y');
+        card.style.removeProperty('--media-shift-x');
+        card.style.removeProperty('--media-shift-y');
+      });
       document.querySelectorAll<HTMLElement>('.hasBorderGlow').forEach(element => {
         element.classList.remove('hasBorderGlow', 'borderGlowActive');
         element.querySelector(':scope > .borderGlowLayer')?.remove();
