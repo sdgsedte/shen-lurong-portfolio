@@ -326,9 +326,9 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
           <div className="pylArtwork pylArtwork--aroma-refill">
             <div className="pylArtworkLabel"><span>FULL DETAIL PAGE</span><b>完整详情页展示</b></div>
             <div className="pylArtworkGrid" role="img" aria-label="车载香薰补充液电商详情页，按顺序分为三列展示">
-              <i className="pylArtworkSegment aromaRefillArtworkSegment pylArtworkSegment1"><img src="/images/projects/car-aroma-refill-clean-01.webp" alt="" loading="lazy" decoding="async" /></i>
-              <i className="pylArtworkSegment aromaRefillArtworkSegment pylArtworkSegment2"><img src="/images/projects/car-aroma-refill-clean-02.webp" alt="" loading="lazy" decoding="async" /></i>
-              <i className="pylArtworkSegment aromaRefillArtworkSegment pylArtworkSegment3"><img src="/images/projects/car-aroma-refill-clean-03.webp" alt="" loading="lazy" decoding="async" /></i>
+              <i className="pylArtworkSegment aromaRefillArtworkSegment pylArtworkSegment1"><img src="/images/projects/car-aroma-refill-final-01.webp" alt="" loading="lazy" decoding="async" /></i>
+              <i className="pylArtworkSegment aromaRefillArtworkSegment pylArtworkSegment2"><img src="/images/projects/car-aroma-refill-final-02.webp" alt="" loading="lazy" decoding="async" /></i>
+              <i className="pylArtworkSegment aromaRefillArtworkSegment pylArtworkSegment3"><img src="/images/projects/car-aroma-refill-final-03.webp" alt="" loading="lazy" decoding="async" /></i>
             </div>
           </div>
           <ReturnToWorksLink className="pylBackLink">← 返回浏览其他分类</ReturnToWorksLink>
