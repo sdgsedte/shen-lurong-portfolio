@@ -56,7 +56,7 @@ export default function Home() {
           <div className="careerPortrait">
             <img
               src="/images/designer-portrait-user.webp"
-              alt="沈路荣在车站检票大厅中"
+              alt="沈路荣在木质楼梯旁"
               loading="lazy"
               decoding="async"
             />
