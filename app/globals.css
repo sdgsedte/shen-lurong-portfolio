@@ -297,8 +297,8 @@ a { color:inherit; text-decoration:none; }
 .pylArtwork--car { background:linear-gradient(180deg,#07172b,#030a13); }
 .seniorArtworkSegment { aspect-ratio:790/6222; }
 .pylArtwork--senior { background:linear-gradient(180deg,#08213a,#061523); }
-.aromaRefillArtworkSegment { aspect-ratio:790/5640; }
-.aromaRefillArtworkSegment img { transform:none; }
+.aromaRefillArtworkSegment { aspect-ratio:790/5520; }
+.aromaRefillArtworkSegment img { height:100%; object-fit:cover; transform:none; }
 .pylArtwork--aroma-refill { background:linear-gradient(180deg,#082746,#04111f); }
 .pylBackLink { display:block; width:fit-content; margin:56px auto 0; padding-bottom:8px; border-bottom:1px solid #45474d; color:#a3a5aa; font-size:11px; }
 .brandKvStudy { width:min(1600px,100%); margin:0 auto; padding:140px 0 120px; }
