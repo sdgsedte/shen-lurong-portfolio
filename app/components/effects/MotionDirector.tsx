@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -15,7 +15,7 @@ const DETAIL_CARDS = [
 ].join(',');
 
 export default function MotionDirector() {
-  useEffect(() => {
+  useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     const root = document.documentElement;
@@ -30,9 +30,37 @@ export default function MotionDirector() {
     }
 
     root.classList.add('motionEnhanced');
+    const imageCleanup: Array<() => void> = [];
 
     const context = gsap.context(() => {
       const shouldPlayOpening = Boolean(hero) && (!window.location.hash || window.location.hash === '#top');
+
+      document.querySelectorAll<HTMLImageElement>('.workDetailPage img').forEach(image => {
+        gsap.set(image, { autoAlpha: 0 });
+
+        let cancelled = false;
+        const showImage = () => {
+          const finish = () => {
+            if (cancelled) return;
+            gsap.to(image, { autoAlpha: 1, duration: 0.78, ease: 'power2.out', overwrite: true });
+          };
+          if (typeof image.decode === 'function') image.decode().then(finish).catch(finish);
+          else finish();
+        };
+        const showFallback = () => gsap.set(image, { autoAlpha: 1 });
+
+        if (image.complete && image.naturalWidth > 0) showImage();
+        else {
+          image.addEventListener('load', showImage, { once: true });
+          image.addEventListener('error', showFallback, { once: true });
+        }
+
+        imageCleanup.push(() => {
+          cancelled = true;
+          image.removeEventListener('load', showImage);
+          image.removeEventListener('error', showFallback);
+        });
+      });
 
       if (opening && shouldPlayOpening) {
         root.classList.add('motionLocked');
@@ -79,6 +107,13 @@ export default function MotionDirector() {
       }
 
       if (hero) {
+      const categoryCards = gsap.utils.toArray<HTMLElement>('.workCategoryCard');
+      const categoryMedia = categoryCards
+        .map(card => card.querySelector<HTMLElement>('.workCategoryMedia'))
+        .filter((item): item is HTMLElement => Boolean(item));
+      gsap.set(categoryCards, { y: 52, autoAlpha: 0, clipPath: 'inset(0 0 12% 0 round 28px)' });
+      gsap.set(categoryMedia, { clipPath: 'inset(0 100% 0 0)', xPercent: -4 });
+
       gsap.timeline({ scrollTrigger: { trigger: '#about', start: 'top 72%', once: true } })
         .from('.careerBio .motionLineInner', {
           yPercent: 125,
@@ -140,38 +175,24 @@ export default function MotionDirector() {
             .map(card => card.querySelector<HTMLElement>('.workCategoryMedia'))
             .filter((item): item is HTMLElement => Boolean(item));
           gsap.timeline()
-            .fromTo(cards,
-              { y: 126, autoAlpha: 0, clipPath: 'inset(0 0 24% 0 round 28px)' },
-              {
+            .to(cards, {
                 y: 0,
                 autoAlpha: 1,
                 clipPath: 'inset(0 0 0% 0 round 28px)',
-                duration: 1.45,
+                duration: 1.35,
                 stagger: 0.2,
                 ease: 'expo.out',
                 clearProps: 'transform,opacity,visibility,clipPath'
               })
-            .fromTo(media,
-              { clipPath: 'inset(0 100% 0 0)', xPercent: -7 },
-              {
+            .to(media, {
                 clipPath: 'inset(0 0% 0 0)',
                 xPercent: 0,
-                duration: 1.55,
+                duration: 1.45,
                 stagger: 0.2,
                 ease: 'expo.inOut',
                 clearProps: 'transform,clipPath'
-              }, 0.12);
+              }, 0.08);
         }
-      });
-
-      document.querySelectorAll<HTMLElement>('.workCategoryCard').forEach(card => {
-        gsap.fromTo(card,
-          { '--scroll-parallax': '-16px' },
-          {
-            '--scroll-parallax': '16px',
-            ease: 'none',
-            scrollTrigger: { trigger: card, start: 'top bottom', end: 'bottom top', scrub: 1.2 }
-          });
       });
 
       gsap.fromTo('.careerPortrait',
@@ -217,18 +238,18 @@ export default function MotionDirector() {
           .from(supporting, { y: 42, autoAlpha: 0, duration: 0.9, stagger: 0.1, ease: 'power4.out' }, '-=0.82');
       });
 
+      const detailCards = gsap.utils.toArray<HTMLElement>(DETAIL_CARDS);
+      gsap.set(detailCards, { y: 58, autoAlpha: 0, clipPath: 'inset(0 0 10% 0)' });
       ScrollTrigger.batch(DETAIL_CARDS, {
         start: 'top 90%',
         once: true,
         interval: 0.16,
         batchMax: 4,
-        onEnter: cards => gsap.fromTo(cards,
-          { y: 92, autoAlpha: 0, clipPath: 'inset(0 0 18% 0)' },
-          {
+        onEnter: cards => gsap.to(cards, {
             y: 0,
             autoAlpha: 1,
             clipPath: 'inset(0 0 0% 0)',
-            duration: 1.35,
+            duration: 1.25,
             stagger: 0.16,
             ease: 'expo.out',
             clearProps: 'transform,opacity,visibility,clipPath'
@@ -239,6 +260,7 @@ export default function MotionDirector() {
     }, document.body);
 
     return () => {
+      imageCleanup.forEach(cleanup => cleanup());
       context.revert();
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
       root.classList.remove('motionEnhanced', 'motionLocked', 'motionReady');

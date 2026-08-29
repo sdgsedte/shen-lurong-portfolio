@@ -660,12 +660,12 @@ body > main { position:relative; z-index:1; }
 .workCategoryCard:hover::before { opacity:.78; }
 .workCategoryMedia,.workCategoryIndex,.workCategoryCopy,.workCategoryCard>b { z-index:3; }
 .workCategoryMedia>img {
-  transform:translate3d(var(--media-shift-x),calc(var(--media-shift-y) + var(--scroll-parallax,0px)),0) scale(1.065);
+  transform:translate3d(var(--media-shift-x),var(--media-shift-y),0) scale(1.065);
   transition:transform .5s cubic-bezier(.2,.75,.2,1),filter .5s ease;
   will-change:transform;
 }
 .workCategoryCard:hover .workCategoryMedia>img {
-  transform:translate3d(var(--media-shift-x),calc(var(--media-shift-y) + var(--scroll-parallax,0px)),0) scale(1.105);
+  transform:translate3d(var(--media-shift-x),var(--media-shift-y),0) scale(1.105);
   filter:saturate(1.08) contrast(1.03);
 }
 .workCategoryIndex,.workCategoryCopy,.workCategoryCard>b { transform:translateZ(24px); }
