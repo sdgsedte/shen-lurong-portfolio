@@ -2,6 +2,7 @@
 
 import LiquidEther from './LiquidEther';
 import BorderGlowController from './effects/BorderGlowController';
+import MotionDirector from './effects/MotionDirector';
 
 export default function SiteEffects() {
   return (
@@ -26,6 +27,7 @@ export default function SiteEffects() {
         />
       </div>
       <BorderGlowController />
+      <MotionDirector />
     </>
   );
 }

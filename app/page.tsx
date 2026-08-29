@@ -30,7 +30,10 @@ export default function Home() {
         <div className="heroShade" />
         <div className="heroContent">
           <div className="availability"><span /> VISUAL / E-COMMERCE / BRAND DESIGNER</div>
-          <h1><strong>SHEN LURONG</strong><br />PORTFOLIO <i>✦</i></h1>
+          <h1>
+            <span className="heroTitleLine"><span className="heroTitleLineInner"><strong>SHEN LURONG</strong></span></span>
+            <span className="heroTitleLine"><span className="heroTitleLineInner">PORTFOLIO <i>✦</i></span></span>
+          </h1>
           <div className="heroIntro">
             <p>用视觉系统与 AI 工作流<br />让品牌内容更快、更准、更有辨识度</p>
             <span>Visual Designer</span>
@@ -56,7 +59,10 @@ export default function Home() {
           </div>
           <div className="careerBio">
             <p className="careerEyebrow">ABOUT ME</p>
-            <h2>Hi, I am<br />Shen Lurong!</h2>
+            <h2>
+              <span className="motionTitleLine"><span className="motionLineInner">Hi, I am</span></span>
+              <span className="motionTitleLine"><span className="motionLineInner">Shen Lurong!</span></span>
+            </h2>
             <p className="careerIntro">我是一名拥有 5 年以上经验的视觉设计师，专注于电商视觉、品牌体系与商业内容。精通 PS / AI / AE / C4D，可独立完成 3D 渲染与动态物料，并熟练运用 AI 工具搭建设计工作流。</p>
             <dl className="careerMeta">
               <div><dt>当前身份</dt><dd>视觉 / 电商 / 品牌设计师</dd></div>
@@ -86,7 +92,7 @@ export default function Home() {
       <section className="works section" id="works">
         <div className="shell">
           <div className="sectionKicker"><span>03</span><p>SELECTED WORK / CAPABILITIES</p></div>
-          <div className="worksHeading"><div><h2>SELECTED WORKS <i>↘</i></h2><span>视觉作品分类</span></div><p>五个作品方向，点击卡片进入独立页面。</p></div>
+          <div className="worksHeading"><div><h2><span className="motionTitleLine"><span className="motionLineInner">SELECTED WORKS <i>↘</i></span></span></h2><span>视觉作品分类</span></div><p>五个作品方向，点击卡片进入独立页面。</p></div>
           <div className="workCategoryGrid">
             {workCategories.map((item, index) => (
               <a className={`workCategoryCard workCategoryCard${index + 1}`} href={`/work/${item.slug}`} key={item.slug}>
@@ -111,7 +117,11 @@ export default function Home() {
           <div className="contactLayout">
             <div className="contactStatement">
               <p>联系方式 / LET&apos;S CONNECT</p>
-              <h2>LET&apos;S BUILD<br />BETTER VISUAL<br /><i>SYSTEMS</i> <span>↘</span></h2>
+              <h2>
+                <span className="motionTitleLine"><span className="motionLineInner">LET&apos;S BUILD</span></span>
+                <span className="motionTitleLine"><span className="motionLineInner">BETTER VISUAL</span></span>
+                <span className="motionTitleLine"><span className="motionLineInner"><i>SYSTEMS</i> <b>↘</b></span></span>
+              </h2>
               <a className="contactBrand" href="#top"><b>●</b> SLR</a>
             </div>
             <aside className="contactCard">

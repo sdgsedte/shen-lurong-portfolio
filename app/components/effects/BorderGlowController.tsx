@@ -44,24 +44,6 @@ export default function BorderGlowController() {
   useEffect(() => {
     decorate();
 
-    const categoryCards = Array.from(document.querySelectorAll<HTMLElement>('.workCategoryCard'));
-    categoryCards.forEach((card, index) => {
-      card.classList.add('categoryRevealPending');
-      card.style.setProperty('--category-delay', `${Math.min(index * 90, 360)}ms`);
-    });
-
-    const revealObserver = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          (entry.target as HTMLElement).classList.add('categoryRevealVisible');
-          revealObserver.unobserve(entry.target);
-        });
-      },
-      { threshold: 0.16, rootMargin: '0px 0px -6% 0px' }
-    );
-    categoryCards.forEach(card => revealObserver.observe(card));
-
     const observer = new MutationObserver(records => {
       records.forEach(record => {
         record.addedNodes.forEach(node => {
@@ -150,13 +132,10 @@ export default function BorderGlowController() {
 
     return () => {
       observer.disconnect();
-      revealObserver.disconnect();
       cancelAnimationFrame(motionFrame);
       window.removeEventListener('pointermove', handlePointerMove);
       document.documentElement.removeEventListener('pointerleave', handlePointerLeave);
-      categoryCards.forEach(card => {
-        card.classList.remove('categoryRevealPending', 'categoryRevealVisible');
-        card.style.removeProperty('--category-delay');
+      document.querySelectorAll<HTMLElement>('.workCategoryCard').forEach(card => {
         card.style.removeProperty('--card-x');
         card.style.removeProperty('--card-y');
         card.style.removeProperty('--card-tilt-x');
