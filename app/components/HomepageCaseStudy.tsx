@@ -1,3 +1,5 @@
+import ReturnToWorksLink from './ReturnToWorksLink';
+
 const firstProjectImages = [
   { src: '/images/projects/38-homepage/kv-products.webp', alt: '38 焕新周产品组合主视觉' },
   { src: '/images/projects/38-homepage/kv-wang-yibo.webp', alt: '王一博焕新周主视觉' },
@@ -81,7 +83,7 @@ export default function HomepageCaseStudy() {
         </section>
       </div>
 
-      <a className="pylBackLink" href="/#works">← 返回浏览其他分类</a>
+      <ReturnToWorksLink className="pylBackLink">← 返回浏览其他分类</ReturnToWorksLink>
     </section>
   );
 }

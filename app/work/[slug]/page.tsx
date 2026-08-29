@@ -1,5 +1,6 @@
 import { getWorkCategory, workCategories } from '../workData';
 import HomepageCaseStudy from '../../components/HomepageCaseStudy';
+import ReturnToWorksLink from '../../components/ReturnToWorksLink';
 
 const brandKvCases = [
   {
@@ -94,7 +95,7 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
   return (
     <main className="workDetailPage">
       <header className="workDetailNav">
-        <a href="/#works" className="backButton"><span>←</span> 返回作品分类</a>
+        <ReturnToWorksLink className="backButton"><span>←</span> 返回作品分类</ReturnToWorksLink>
         <span>SHEN LURONG / PORTFOLIO</span>
         <a href="mailto:248612569@qq.com">联系合作 ↗</a>
       </header>
@@ -280,7 +281,7 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
               <i className="pylArtworkSegment seniorArtworkSegment pylArtworkSegment3"><img src="/images/projects/senior-probiotic-detail.jpg" alt="" /></i>
             </div>
           </div>
-          <a className="pylBackLink" href="/#works">← 返回浏览其他分类</a>
+          <ReturnToWorksLink className="pylBackLink">← 返回浏览其他分类</ReturnToWorksLink>
         </section>
       ) : isBrandKv ? (
         <section className="brandKvStudy" aria-label="品牌 KV 视觉案例">
@@ -322,7 +323,7 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
               </article>
             ))}
           </div>
-          <a className="pylBackLink" href="/#works">← 返回浏览其他分类</a>
+          <ReturnToWorksLink className="pylBackLink">← 返回浏览其他分类</ReturnToWorksLink>
         </section>
       ) : isLivestream ? (
         <section className="renderStudy livestreamStudy" aria-label="直播间视觉作品集">
@@ -361,7 +362,7 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
               ))}
             </div>
           </section>
-          <a className="pylBackLink" href="/#works">← 返回浏览其他分类</a>
+          <ReturnToWorksLink className="pylBackLink">← 返回浏览其他分类</ReturnToWorksLink>
         </section>
       ) : is3dRendering ? (
         <section className="renderStudy" aria-label="三维渲染作品集">
@@ -421,7 +422,7 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
               ))}
             </div>
           </section>
-          <a className="pylBackLink" href="/#works">← 返回浏览其他分类</a>
+          <ReturnToWorksLink className="pylBackLink">← 返回浏览其他分类</ReturnToWorksLink>
         </section>
       ) : (
         <>
@@ -434,7 +435,7 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
           <section className="assetNotice">
             <p>CONTENT COMING SOON</p>
             <h2>真实项目素材<br />将在这里完整呈现。</h2>
-            <a href="/#works">← 返回浏览其他分类</a>
+            <ReturnToWorksLink>← 返回浏览其他分类</ReturnToWorksLink>
           </section>
         </>
       )}

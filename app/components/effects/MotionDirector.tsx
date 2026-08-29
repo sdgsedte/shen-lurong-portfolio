@@ -21,6 +21,8 @@ export default function MotionDirector() {
     const root = document.documentElement;
     const opening = document.querySelector<HTMLElement>('.openingSequence');
     const hero = document.querySelector<HTMLElement>('.hero');
+    const returningToWorks = Boolean(hero) && window.sessionStorage.getItem('portfolio-return-to-works') === '1';
+    if (returningToWorks) window.sessionStorage.removeItem('portfolio-return-to-works');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (reducedMotion) {
@@ -33,7 +35,7 @@ export default function MotionDirector() {
     const imageCleanup: Array<() => void> = [];
 
     const context = gsap.context(() => {
-      const shouldPlayOpening = Boolean(hero) && (!window.location.hash || window.location.hash === '#top');
+      const shouldPlayOpening = Boolean(hero) && !returningToWorks && (!window.location.hash || window.location.hash === '#top');
 
       document.querySelectorAll<HTMLImageElement>('.workDetailPage img').forEach(image => {
         gsap.set(image, { autoAlpha: 0 });
@@ -106,7 +108,7 @@ export default function MotionDirector() {
         root.classList.add('motionReady');
       }
 
-      if (hero) {
+      if (hero && !returningToWorks) {
       const categoryCards = gsap.utils.toArray<HTMLElement>('.workCategoryCard');
       const categoryMedia = categoryCards
         .map(card => card.querySelector<HTMLElement>('.workCategoryMedia'))
