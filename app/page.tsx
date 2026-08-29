@@ -54,7 +54,12 @@ export default function Home() {
         <div className="sectionKicker"><span>02</span><p>ABOUT / EXPERIENCE</p></div>
         <div className="careerProfile">
           <div className="careerPortrait">
-            <img src="/images/designer-portrait.png" alt="视觉设计师在工作室中查看设计画面" />
+            <img
+              src="/images/designer-portrait-user.webp"
+              alt="沈路荣在车站检票大厅中"
+              loading="lazy"
+              decoding="async"
+            />
             <span>SHEN LURONG / VISUAL DESIGNER</span>
           </div>
           <div className="careerBio">
