@@ -111,7 +111,7 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
             ))}
           </nav>
         ) : <span>SHEN LURONG / PORTFOLIO</span>}
-        <a href="mailto:248612569@qq.com">联系合作 ↗</a>
+        <a href="/#contact">联系合作 ↗</a>
       </header>
 
       {!isProductDetail && !isBrandKv && !is3dRendering && !isLivestream && !isStoreHome && (

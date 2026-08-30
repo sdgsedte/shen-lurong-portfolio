@@ -13,7 +13,7 @@ export default function Home() {
       <header className="siteHeader">
         <a className="wordmark" href="#top" aria-label="沈路荣作品集首页"><span>●</span> SLR</a>
         <nav className="heroNav" aria-label="主导航"><a href="#about">工作经历</a><a href="#works">作品分类</a><a href="#contact">联系我</a></nav>
-        <a className="contactPill" href="mailto:248612569@qq.com">联系合作 <span>↗</span></a>
+        <a className="contactPill" href="#contact">联系合作 <span>↗</span></a>
       </header>
       <section className="hero" id="top">
         <div className="heroScene" aria-hidden="true">
