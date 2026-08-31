@@ -6,7 +6,6 @@ const GLOW_TARGETS = [
   '.siteHeader',
   '.campaignCard',
   '.profileGrid',
-  '.careerPortrait',
   '.workCategoryCard',
   '.workDetailNav',
   '.placeholderGallery article',

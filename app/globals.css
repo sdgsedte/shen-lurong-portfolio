@@ -131,8 +131,7 @@ a { color:inherit; text-decoration:none; }
 .timeline div p { margin:0; color:var(--accent); font-size:11px; }
 .timeline>article>p { margin:0; color:#898a8e; font-size:13px; line-height:1.85; }
 .careerProfile { display:grid; grid-template-columns:minmax(360px,.72fr) 1.28fr; gap:42px; align-items:stretch; }
-.careerPortrait { position:relative; min-height:610px; overflow:hidden; border:1px solid transparent; border-radius:28px; background:linear-gradient(#111216,#111216) padding-box,linear-gradient(145deg,#343741 0%,#5227ff 58%,#ff9ffc 100%) border-box; box-shadow:0 24px 78px rgb(0 0 0 / 28%); }
-.careerPortrait>.borderGlowLayer { inset:-1px; }
+.careerPortrait { position:relative; min-height:610px; overflow:hidden; border:1px solid #27282d; border-radius:28px; background:#111216; }
 .careerPortrait::after { position:absolute; inset:0; content:""; background:linear-gradient(180deg,transparent 58%,rgb(0 0 0 / 76%)); }
 .careerPortrait img { display:block; width:100%; height:calc(100% + 48px); object-fit:cover; object-position:50% 50%; filter:saturate(.88) contrast(1.08) brightness(1.02); transform:translate3d(0,var(--portrait-parallax,0px),0) scale(1.04); will-change:transform; }
 .careerPortrait>span { position:absolute; z-index:1; right:28px; bottom:26px; left:28px; color:rgb(255 255 255 / 60%); font-size:9px; letter-spacing:.16em; }
