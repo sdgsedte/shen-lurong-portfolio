@@ -165,7 +165,7 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
               <article>
                 <span>DESIGN CONCEPT / 设计思路</span>
                 <h3>品牌蓝 × 科技感 × 胃部养护</h3>
-                <p>KV 以品牌蓝建立专业可信的视觉基调，将产品置于发光能量场中，并结合粒子、微观菌群、环形光轨与胃部轮廓，强化科学研发与胃部微生态养护的联想。圆形能量轨迹呼应菌群平衡与持续防护，画面以产品为中心，通过清晰的信息层级兼顾科技氛围与电商阅读效率。</p>
+                <p>品牌蓝建立专业可信的视觉基调，将产品置于发光能量场中，并结合粒子、微观菌群、环形光轨与胃部轮廓，强化科学研发与胃部微生态养护的联想。圆形能量轨迹呼应菌群平衡与持续防护，画面以产品为中心，通过清晰的信息层级兼顾科技氛围与电商阅读效率。</p>
               </article>
               <div className="pylPalette" aria-label="项目色彩系统">
                 <div><i style={{ background: '#079BE7' }} /><span>主色<br /><b>#079BE7</b></span></div>
@@ -189,9 +189,6 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
             <div className="pylCaseIdentity">
               <p>02 / E-COMMERCE DESIGN</p>
               <h2>600亿<br />益生菌</h2>
-              <div className="lpbSymbol" aria-label="LPB27 自研菌株视觉符号">
-                <i>LPB</i><b>27</b><span>PROPRIETARY STRAIN</span>
-              </div>
               <span>详情页视觉设计 / 日常肠道养护品类</span>
             </div>
 

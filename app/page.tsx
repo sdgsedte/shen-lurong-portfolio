@@ -78,7 +78,7 @@ export default function Home() {
             <div className="careerStats" aria-label="项目数据">
               <div><b>5<sup>+</sup></b><span>设计经验</span></div>
               <div><b>10<sup>+</sup></b><span>营销全案</span></div>
-              <div><b>3</b><span>亿级品牌</span></div>
+              <div><b>3</b><span>家亿级品牌</span></div>
             </div>
             <div className="careerTags"><span>品牌视觉系统</span><span>电商转化设计</span><span>三维动态</span><span>AI 设计工作流</span></div>
           </div>
@@ -137,7 +137,9 @@ export default function Home() {
                 <div><dt>邮箱</dt><dd><a href="mailto:248612569@qq.com">248612569@qq.com</a></dd></div>
               </dl>
               <p className="contactRole">VISUAL / E-COMMERCE / BRAND DESIGN</p>
-              <div className="qrPlaceholder" aria-label="二维码预留位置"><span>QR CODE</span><b>二维码待替换</b></div>
+              <div className="qrPlaceholder" aria-label="微信二维码">
+                <img src="/images/contact/wechat-qr.png" alt="沈路荣微信二维码" />
+              </div>
             </aside>
           </div>
           <div className="footerMeta">

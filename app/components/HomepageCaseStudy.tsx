@@ -5,8 +5,6 @@ const firstProjectImages = [
   { src: '/images/projects/38-homepage/kv-wang-yibo.webp', alt: '王一博焕新周主视觉' },
   { src: '/images/projects/38-homepage/member-benefits.webp', alt: '会员充值、消费券与会员礼权益模块' },
   { src: '/images/projects/38-homepage/livestream-entry.webp', alt: '直播间专属礼与产品选购入口' },
-  { src: '/images/projects/38-homepage/product-320.webp', alt: '320 亿广谱益生菌首页产品模块' },
-  { src: '/images/projects/38-homepage/product-pyl.webp', alt: 'PYL100 超舒益生菌首页产品模块' },
   { src: '/images/projects/38-homepage/product-b420-3.webp', alt: 'B420 3.0 益生菌首页产品模块' },
   { src: '/images/projects/38-homepage/product-b420-s600.webp', alt: 'B420 与 S600 组合首页产品模块' },
 ];
@@ -81,6 +79,12 @@ export default function HomepageCaseStudy() {
             </figure>
           </article>
         </section>
+      </div>
+
+      <div className="storeProjectEpilogue" aria-label="作品展示说明">
+        <span>SELECTED ARCHIVE / 04</span>
+        <p>受页面篇幅所限，仅展示部分代表性设计内容。</p>
+        <i>MORE WORKS AVAILABLE UPON REQUEST</i>
       </div>
 
       <ReturnToWorksLink className="pylBackLink">← 返回浏览其他分类</ReturnToWorksLink>
