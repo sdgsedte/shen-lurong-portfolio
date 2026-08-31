@@ -15,7 +15,7 @@ export default function HomepageCaseStudy() {
       <div className="homepageCaseHeader">
         <div className="homepageCaseIdentity">
           <p>01 / STORE HOMEPAGE DESIGN</p>
-          <h2>38 焕新周<br />店铺首页视觉</h2>
+          <h2>38 焕新周<br />首页视觉</h2>
           <span>天猫店铺首页 / 节点营销 / 内容转化</span>
         </div>
         <div className="homepageCaseOverview">
@@ -48,9 +48,15 @@ export default function HomepageCaseStudy() {
           ))}
         </section>
 
+        <div className="storeProjectEpilogue" aria-label="作品展示说明">
+          <span>SELECTED ARCHIVE / 01</span>
+          <p>受篇幅所限，只展示前部分内容。</p>
+          <i>MORE WORKS AVAILABLE UPON REQUEST</i>
+        </div>
+
         <section className="storeProject storeProject--single" aria-label="万火官旗新年首页">
           <div className="storeProjectIntro">
-            <div><span>02 / FESTIVAL HOMEPAGE</span><h3>万火官旗新年首页</h3></div>
+            <div><span>02 / FESTIVAL HOMEPAGE</span><h3>万火官旗首页</h3></div>
             <p>围绕“回家有道，喜迎新年”的主题，以月夜、门楼、灯笼与团圆宴席构建春节场景。金红色作为视觉核心，结合品牌角色的互动叙事，将节日祝福、产品氛围与品牌温度融入同一幅主视觉。</p>
           </div>
           <figure className="storeProjectImage storeProjectImage--wide">
@@ -79,12 +85,6 @@ export default function HomepageCaseStudy() {
             </figure>
           </article>
         </section>
-      </div>
-
-      <div className="storeProjectEpilogue" aria-label="作品展示说明">
-        <span>SELECTED ARCHIVE / 04</span>
-        <p>受页面篇幅所限，仅展示部分代表性设计内容。</p>
-        <i>MORE WORKS AVAILABLE UPON REQUEST</i>
       </div>
 
       <ReturnToWorksLink className="pylBackLink">← 返回浏览其他分类</ReturnToWorksLink>

@@ -396,7 +396,7 @@ a { color:inherit; text-decoration:none; }
 .storeProjectCard { min-width:0; }
 .storeProjectIntro { display:grid; grid-template-columns:.75fr 1.25fr; gap:40px; align-items:end; margin-bottom:28px; padding:0 4px 24px; border-bottom:1px solid #303238; }
 .storeProjectIntro span { display:block; margin-bottom:14px; color:var(--accent); font-size:8px; letter-spacing:.18em; }
-.storeProjectIntro h3 { margin:0; font-size:clamp(32px,3vw,52px); font-weight:500; line-height:1.05; letter-spacing:-.04em; }
+.storeProjectIntro h3 { margin:0; font-size:clamp(32px,3vw,52px); font-weight:500; line-height:1.05; letter-spacing:-.015em; }
 .storeProjectIntro p { margin:0; color:#777a80; font-size:12px; line-height:1.9; }
 .storeProjectIntro--card { grid-template-columns:1fr; gap:14px; min-height:210px; align-content:end; margin-bottom:18px; padding-inline:4px; }
 .storeProjectIntro--card h3 { font-size:clamp(28px,2.6vw,44px); }
