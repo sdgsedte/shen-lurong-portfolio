@@ -55,8 +55,8 @@ export default function Home() {
         <div className="careerProfile">
           <div className="careerPortrait">
             <img
-              src="/images/designer-portrait-user.webp"
-              alt="沈路荣在木质楼梯旁"
+              src="/images/designer-portrait-night.jpg"
+              alt="沈路荣夜间户外人像"
               loading="lazy"
               decoding="async"
             />
