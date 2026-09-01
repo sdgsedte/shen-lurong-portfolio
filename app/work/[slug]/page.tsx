@@ -67,7 +67,7 @@ const livestreamCases = [
   { title: '双11直播间视觉', image: '/images/projects/livestream-double11.jpg' },
   { title: '过年前直播间视觉', image: '/images/projects/livestream-pre-spring.jpg' },
   { title: '春节直播间视觉', image: '/images/projects/livestream-spring-festival.jpg' },
-  { title: '代言人续约直播视觉', image: '/images/projects/livestream-ambassador-renewal.jpg' }
+  { title: '代言人马年续约', image: '/images/projects/livestream-ambassador-renewal.jpg' }
 ];
 
 const productDetailProjects = [

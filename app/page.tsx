@@ -32,11 +32,10 @@ export default function Home() {
           <div className="availability"><span /> VISUAL / E-COMMERCE / BRAND DESIGNER</div>
           <h1>
             <span className="heroTitleLine"><span className="heroTitleLineInner"><strong>SHEN LURONG</strong></span></span>
-            <span className="heroTitleLine"><span className="heroTitleLineInner">PORTFOLIO <i>✦</i></span></span>
+            <span className="heroTitleLine heroTitlePortfolio"><span className="heroTitleLineInner">PORTFOLIO <i>✦</i><em className="heroSignature">Visual Designer</em></span></span>
           </h1>
           <div className="heroIntro">
             <p>用视觉系统与 AI 工作流<br />让品牌内容更快、更准、更有辨识度</p>
-            <span>Visual Designer</span>
           </div>
         </div>
         <div className="campaignRail" aria-label="Life-space 电商视觉作品轮播">
