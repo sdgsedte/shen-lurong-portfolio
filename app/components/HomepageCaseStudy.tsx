@@ -15,7 +15,7 @@ export default function HomepageCaseStudy() {
       <div className="homepageCaseHeader">
         <div className="homepageCaseIdentity">
           <p>01 / STORE HOMEPAGE DESIGN</p>
-          <h2>38 焕新周<br />首页视觉</h2>
+          <h2>38 <span>焕新周</span><br />首页视觉</h2>
           <span>天猫店铺首页 / 节点营销 / 内容转化</span>
         </div>
         <div className="homepageCaseOverview">

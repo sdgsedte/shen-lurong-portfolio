@@ -345,6 +345,7 @@ a { color:inherit; text-decoration:none; }
 .homepageCaseIdentity { display:flex; flex-direction:column; }
 .homepageCaseIdentity>p,.homepageCaseOverview article>span { margin:0 0 22px; color:var(--accent); font-size:9px; letter-spacing:.17em; }
 .homepageCaseIdentity h2 { margin:0; font-size:clamp(52px,5.6vw,94px); font-weight:600; line-height:1.12; letter-spacing:-.035em; }
+.homepageCaseIdentity h2>span { display:inline-block; transform:translateX(-.06em); }
 .homepageCaseIdentity>span { margin-top:auto; padding-top:48px; color:rgb(255 255 255 / 56%); font-size:11px; letter-spacing:.08em; }
 .homepageCaseOverview { display:grid; grid-template-columns:1fr 1fr; gap:42px 48px; }
 .homepageCaseOverview article { padding-top:24px; border-top:1px solid #303238; }
