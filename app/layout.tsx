@@ -10,6 +10,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="zh-CN">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.classList.add('motionBooting');setTimeout(function(){document.documentElement.classList.remove('motionBooting')},2500);",
+          }}
+        />
+      </head>
       <body>
         <SiteEffects />
         {children}

@@ -25,6 +25,7 @@ export default function MotionDirector() {
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (reducedMotion) {
+      root.classList.remove('motionBooting');
       root.classList.add('motionReady');
       return () => root.classList.remove('motionReady');
     }
@@ -61,36 +62,39 @@ export default function MotionDirector() {
         });
       });
 
-      root.classList.add('motionReady');
-
       if (hero && !returningToWorks) {
-      gsap.timeline({ defaults: { ease: 'expo.out' } })
-        .from('.availability', {
-          y: 18,
-          autoAlpha: 0,
+        gsap.set('.availability', { y: 18, autoAlpha: 0 });
+        gsap.set('.heroTitleLineInner', { yPercent: 115, scaleY: 0.8 });
+        gsap.set('.heroSignature', { x: -20, rotate: -16, autoAlpha: 0 });
+        gsap.set('.heroIntro p', { y: 22, autoAlpha: 0 });
+
+        gsap.timeline({ defaults: { ease: 'expo.out' } })
+        .to('.availability', {
+          y: 0,
+          autoAlpha: 1,
           duration: 0.7,
           clearProps: 'transform,opacity,visibility'
         })
-        .from('.heroTitleLineInner', {
-          yPercent: 115,
-          scaleY: 0.8,
+        .to('.heroTitleLineInner', {
+          yPercent: 0,
+          scaleY: 1,
           duration: 1.05,
           stagger: 0.12,
           clearProps: 'transform'
         }, '-=0.38')
-        .from('.heroSignature', {
-          x: -20,
-          rotate: -16,
-          autoAlpha: 0,
+        .to('.heroSignature', {
+          x: 0,
+          rotate: -8,
+          autoAlpha: 1,
           duration: 0.7,
           clearProps: 'transform,opacity,visibility'
         }, '-=0.46')
-        .from('.heroIntro p', {
-          y: 22,
-          autoAlpha: 0,
+        .to('.heroIntro p', {
+          y: 0,
+          autoAlpha: 1,
           duration: 0.75,
           clearProps: 'transform,opacity,visibility'
-        }, '-=0.42');
+          }, '-=0.42');
 
       const categoryCards = gsap.utils.toArray<HTMLElement>('.workCategoryCard');
       const categoryMedia = categoryCards
@@ -206,6 +210,9 @@ export default function MotionDirector() {
         }, '-=1.2')
         .from('.footerMeta>*', { y: 38, autoAlpha: 0, duration: 0.8, stagger: 0.12, ease: 'power3.out' }, '-=0.55');
       }
+
+      root.classList.add('motionReady');
+      root.classList.remove('motionBooting');
 
       document.querySelectorAll<HTMLElement>('.caseCategoryHeading,.renderSectionHeading,.homepageModuleHeading').forEach(heading => {
         const title = heading.querySelector<HTMLElement>('h1,h2,h3');
