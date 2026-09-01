@@ -682,7 +682,7 @@ body > main { position:relative; z-index:1; }
   transform:translate3d(var(--media-shift-x),var(--media-shift-y),0) scale(1.105);
   filter:saturate(1.08) contrast(1.03);
 }
-.workCategoryIndex,.workCategoryCopy,.workCategoryCard>b { transform:translateZ(24px); }
+.workCategoryCopy,.workCategoryCard>b { transform:translateZ(24px); }
 
 /* Full-screen agency-style opening sequence. Hidden until MotionDirector takes ownership. */
 .openingSequence {
