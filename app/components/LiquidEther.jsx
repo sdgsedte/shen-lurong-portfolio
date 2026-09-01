@@ -14,6 +14,7 @@ export default function LiquidEther({
   dt = 0.014,
   BFECC = true,
   resolution = 0.5,
+  maxFps = 30,
   isBounce = false,
   colors = ['#5227FF', '#FF9FFC', '#B497CF'],
   style = {},
@@ -87,7 +88,7 @@ export default function LiquidEther({
       }
       init(container) {
         this.container = container;
-        this.pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+        this.pixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
         this.resize();
         this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
         this.renderer.autoClear = false;
@@ -957,6 +958,8 @@ export default function LiquidEther({
         };
         document.addEventListener('visibilitychange', this._onVisibility);
         this.running = false;
+        this.lastRenderTime = 0;
+        this.frameInterval = 1000 / Math.max(1, props.maxFps);
       }
       init() {
         this.props.$wrapper.prepend(Common.renderer.domElement);
@@ -972,9 +975,12 @@ export default function LiquidEther({
         Common.update();
         this.output.update();
       }
-      loop() {
+      loop(timestamp = performance.now()) {
         if (!this.running) return; // safety
-        this.render();
+        if (timestamp - this.lastRenderTime >= this.frameInterval) {
+          this.render();
+          this.lastRenderTime = timestamp;
+        }
         rafRef.current = requestAnimationFrame(this._loop);
       }
       start() {
@@ -1017,7 +1023,8 @@ export default function LiquidEther({
       autoIntensity,
       takeoverDuration,
       autoResumeDelay,
-      autoRampDuration
+      autoRampDuration,
+      maxFps
     });
     webglRef.current = webgl;
 
@@ -1113,7 +1120,8 @@ export default function LiquidEther({
     autoIntensity,
     takeoverDuration,
     autoResumeDelay,
-    autoRampDuration
+    autoRampDuration,
+    maxFps
   ]);
 
   useEffect(() => {

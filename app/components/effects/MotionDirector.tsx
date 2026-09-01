@@ -23,6 +23,7 @@ export default function MotionDirector() {
     const hero = document.querySelector<HTMLElement>('.hero');
     const returningToWorks = Boolean(hero) && window.sessionStorage.getItem('portfolio-return-to-works') === '1';
     if (returningToWorks) window.sessionStorage.removeItem('portfolio-return-to-works');
+    const openingPlayed = window.sessionStorage.getItem('portfolio-opening-played') === '1';
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (reducedMotion) {
@@ -33,9 +34,10 @@ export default function MotionDirector() {
 
     root.classList.add('motionEnhanced');
     const imageCleanup: Array<() => void> = [];
+    let refreshTimer = 0;
 
     const context = gsap.context(() => {
-      const shouldPlayOpening = Boolean(hero) && !returningToWorks && (!window.location.hash || window.location.hash === '#top');
+      const shouldPlayOpening = Boolean(hero) && !returningToWorks && !openingPlayed && (!window.location.hash || window.location.hash === '#top');
 
       document.querySelectorAll<HTMLImageElement>('.workDetailPage img').forEach(image => {
         gsap.set(image, { autoAlpha: 0 });
@@ -65,6 +67,7 @@ export default function MotionDirector() {
       });
 
       if (opening && shouldPlayOpening) {
+        window.sessionStorage.setItem('portfolio-opening-played', '1');
         root.classList.add('motionLocked');
         gsap.set(opening, { autoAlpha: 1, display: 'block' });
         gsap.set('.siteHeader', { yPercent: -145, autoAlpha: 0 });
@@ -86,22 +89,22 @@ export default function MotionDirector() {
             ScrollTrigger.refresh();
           }
         })
-          .fromTo('.openingWordInner', { yPercent: 120 }, { yPercent: 0, duration: 0.95 })
-          .fromTo('.openingMeta', { autoAlpha: 0, y: 18 }, { autoAlpha: 1, y: 0, duration: 0.75 }, '<0.12')
-          .fromTo('.openingProgress i', { scaleX: 0 }, { scaleX: 1, duration: 1.05, ease: 'power3.inOut' }, '<0.05')
-          .to('.openingPanel', { yPercent: -104, duration: 1.45, stagger: 0.09 }, '+=0.18')
-          .to('.openingWord,.openingMeta,.openingProgress', { y: -40, autoAlpha: 0, duration: 0.48, ease: 'power3.in' }, '<0.02')
+          .fromTo('.openingWordInner', { yPercent: 120 }, { yPercent: 0, duration: 0.55 })
+          .fromTo('.openingMeta', { autoAlpha: 0, y: 18 }, { autoAlpha: 1, y: 0, duration: 0.4 }, '<0.08')
+          .fromTo('.openingProgress i', { scaleX: 0 }, { scaleX: 1, duration: 0.62, ease: 'power3.inOut' }, '<0.03')
+          .to('.openingPanel', { yPercent: -104, duration: 0.9, stagger: 0.06 }, '+=0.08')
+          .to('.openingWord,.openingMeta,.openingProgress', { y: -28, autoAlpha: 0, duration: 0.3, ease: 'power3.in' }, '<0.02')
           .to('.heroScene', {
             clipPath: 'inset(0% 0% 0% 0% round 0px)',
             scale: 1,
             yPercent: 0,
-            duration: 1.9,
+            duration: 1.05,
             ease: 'expo.inOut'
-          }, '-=1.15')
-          .to('.heroContent', { y: 0, scaleY: 1, autoAlpha: 1, duration: 1.42, ease: 'expo.out' }, '-=1.15')
-          .to('.siteHeader', { yPercent: 0, autoAlpha: 1, duration: 1.05, ease: 'power4.out' }, '-=0.94')
-          .to('.campaignRail', { y: 0, autoAlpha: 1, duration: 1.15, ease: 'power4.out' }, '-=0.82')
-          .to('.scrollCue', { y: 0, autoAlpha: 1, duration: 0.8, ease: 'power3.out' }, '-=0.56')
+          }, '-=0.7')
+          .to('.heroContent', { y: 0, scaleY: 1, autoAlpha: 1, duration: 0.78, ease: 'expo.out' }, '-=0.72')
+          .to('.siteHeader', { yPercent: 0, autoAlpha: 1, duration: 0.62, ease: 'power4.out' }, '-=0.58')
+          .to('.campaignRail', { y: 0, autoAlpha: 1, duration: 0.68, ease: 'power4.out' }, '-=0.52')
+          .to('.scrollCue', { y: 0, autoAlpha: 1, duration: 0.48, ease: 'power3.out' }, '-=0.38')
           .set(opening, { display: 'none' });
       } else {
         if (opening) gsap.set(opening, { display: 'none' });
@@ -258,11 +261,12 @@ export default function MotionDirector() {
           })
       });
 
-      window.setTimeout(() => ScrollTrigger.refresh(), 220);
+      refreshTimer = window.setTimeout(() => ScrollTrigger.refresh(), 220);
     }, document.body);
 
     return () => {
       imageCleanup.forEach(cleanup => cleanup());
+      window.clearTimeout(refreshTimer);
       context.revert();
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
       root.classList.remove('motionEnhanced', 'motionLocked', 'motionReady');

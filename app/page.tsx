@@ -17,8 +17,8 @@ export default function Home() {
       </header>
       <section className="hero" id="top">
         <div className="heroScene" aria-hidden="true">
-          <img className="heroSceneDay" src="/images/hero-cloud-autumn-wide-v2.png" alt="" />
-          <img className="heroSceneNight" src="/images/hero-cloud-winter-wide-v3.png" alt="" />
+          <img className="heroSceneDay" src="/images/hero-cloud-autumn-wide-v2.webp" alt="" fetchPriority="high" decoding="async" />
+          <img className="heroSceneNight" src="/images/hero-cloud-winter-wide-v3.webp" alt="" loading="lazy" decoding="async" />
           <div className="heroAtmosphere" />
           <div className="seasonParticles autumnLeaves">
             {autumnLeaves.map((_, index) => <i key={index} style={{ left: `${(index * 23 + 7) % 96}%`, animationDelay: `${index * -0.55}s`, animationDuration: `${4.8 + (index % 4) * 0.7}s` }} />)}
@@ -42,7 +42,12 @@ export default function Home() {
           <div className="campaignTrack">
             {[...campaignCards, ...campaignCards].map((card, index) => (
               <figure className="campaignCard" key={`${card.src}-${index}`} aria-hidden={index >= campaignCards.length}>
-                <img src={card.src} alt={index < campaignCards.length ? card.alt : ""} />
+                <img
+                  src={card.src}
+                  alt={index < campaignCards.length ? card.alt : ""}
+                  loading={index < 5 ? 'eager' : 'lazy'}
+                  decoding="async"
+                />
               </figure>
             ))}
           </div>
@@ -104,7 +109,7 @@ export default function Home() {
                   className={`workCategoryMedia${item.fit === 'contain' ? ' workCategoryMediaContain' : ''}`}
                   style={item.fit === 'contain' ? { backgroundImage: `url(${item.image})` } : undefined}
                 >
-                  <img src={item.image} alt={`${item.title}分类封面`} />
+                  <img src={item.image} alt={`${item.title}分类封面`} loading="lazy" decoding="async" />
                 </div>
                 <div className="workCategoryShade" />
                 <span className="workCategoryIndex">{item.index}</span>
@@ -137,7 +142,7 @@ export default function Home() {
               </dl>
               <p className="contactRole">VISUAL / E-COMMERCE / BRAND DESIGN</p>
               <div className="qrPlaceholder" aria-label="微信二维码">
-                <img src="/images/contact/wechat-qr.png" alt="沈路荣微信二维码" />
+                <img src="/images/contact/wechat-qr.png" alt="沈路荣微信二维码" loading="lazy" decoding="async" />
               </div>
             </aside>
           </div>

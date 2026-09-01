@@ -179,9 +179,9 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
           <div className="pylArtwork">
             <div className="pylArtworkLabel"><span>FULL DETAIL PAGE</span><b>完整详情页展示</b></div>
             <div className="pylArtworkGrid" role="img" aria-label="PYL100 益生菌电商详情页，按顺序分为三列展示">
-              <i className="pylArtworkSegment pylArtworkSegment1"><img src="/images/projects/pyl100-detail.jpg" alt="" /></i>
-              <i className="pylArtworkSegment pylArtworkSegment2"><img src="/images/projects/pyl100-detail.jpg" alt="" /></i>
-              <i className="pylArtworkSegment pylArtworkSegment3"><img src="/images/projects/pyl100-detail.jpg" alt="" /></i>
+              <i className="pylArtworkSegment pylArtworkSegment1"><img src="/images/projects/pyl100-detail-01.webp" alt="" loading="lazy" decoding="async" /></i>
+              <i className="pylArtworkSegment pylArtworkSegment2"><img src="/images/projects/pyl100-detail-02.webp" alt="" loading="lazy" decoding="async" /></i>
+              <i className="pylArtworkSegment pylArtworkSegment3"><img src="/images/projects/pyl100-detail-03.webp" alt="" loading="lazy" decoding="async" /></i>
             </div>
           </div>
 
@@ -215,9 +215,9 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
           <div className="pylArtwork pylArtwork--lpb">
             <div className="pylArtworkLabel"><span>FULL DETAIL PAGE</span><b>完整详情页展示</b></div>
             <div className="pylArtworkGrid" role="img" aria-label="600 亿益生菌电商详情页，按顺序分为三列展示">
-              <i className="pylArtworkSegment lpbArtworkSegment pylArtworkSegment1"><img src="/images/projects/lpb27-600-detail.jpg" alt="" /></i>
-              <i className="pylArtworkSegment lpbArtworkSegment pylArtworkSegment2"><img src="/images/projects/lpb27-600-detail.jpg" alt="" /></i>
-              <i className="pylArtworkSegment lpbArtworkSegment pylArtworkSegment3"><img src="/images/projects/lpb27-600-detail.jpg" alt="" /></i>
+              <i className="pylArtworkSegment lpbArtworkSegment pylArtworkSegment1"><img src="/images/projects/lpb27-600-detail-01.webp" alt="" loading="lazy" decoding="async" /></i>
+              <i className="pylArtworkSegment lpbArtworkSegment pylArtworkSegment2"><img src="/images/projects/lpb27-600-detail-02.webp" alt="" loading="lazy" decoding="async" /></i>
+              <i className="pylArtworkSegment lpbArtworkSegment pylArtworkSegment3"><img src="/images/projects/lpb27-600-detail-03.webp" alt="" loading="lazy" decoding="async" /></i>
             </div>
           </div>
 
@@ -251,9 +251,9 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
           <div className="pylArtwork pylArtwork--senior">
             <div className="pylArtworkLabel"><span>FULL DETAIL PAGE</span><b>完整详情页展示</b></div>
             <div className="pylArtworkGrid" role="img" aria-label="中老年益生菌电商详情页，按顺序分为三列展示">
-              <i className="pylArtworkSegment seniorArtworkSegment pylArtworkSegment1"><img src="/images/projects/senior-probiotic-detail.jpg" alt="" /></i>
-              <i className="pylArtworkSegment seniorArtworkSegment pylArtworkSegment2"><img src="/images/projects/senior-probiotic-detail.jpg" alt="" /></i>
-              <i className="pylArtworkSegment seniorArtworkSegment pylArtworkSegment3"><img src="/images/projects/senior-probiotic-detail.jpg" alt="" /></i>
+              <i className="pylArtworkSegment seniorArtworkSegment pylArtworkSegment1"><img src="/images/projects/senior-probiotic-detail-01.webp" alt="" loading="lazy" decoding="async" /></i>
+              <i className="pylArtworkSegment seniorArtworkSegment pylArtworkSegment2"><img src="/images/projects/senior-probiotic-detail-02.webp" alt="" loading="lazy" decoding="async" /></i>
+              <i className="pylArtworkSegment seniorArtworkSegment pylArtworkSegment3"><img src="/images/projects/senior-probiotic-detail-03.webp" alt="" loading="lazy" decoding="async" /></i>
             </div>
           </div>
 
@@ -287,9 +287,9 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
           <div className="pylArtwork pylArtwork--car">
             <div className="pylArtworkLabel"><span>FULL DETAIL PAGE</span><b>完整详情页展示</b></div>
             <div className="pylArtworkGrid" role="img" aria-label="车载香薰仪电商详情页，按顺序分为三列展示">
-              <i className="pylArtworkSegment carArtworkSegment pylArtworkSegment1"><img src="/images/projects/car-aroma-detail.jpg" alt="" /></i>
-              <i className="pylArtworkSegment carArtworkSegment pylArtworkSegment2"><img src="/images/projects/car-aroma-detail.jpg" alt="" /></i>
-              <i className="pylArtworkSegment carArtworkSegment pylArtworkSegment3"><img src="/images/projects/car-aroma-detail.jpg" alt="" /></i>
+              <i className="pylArtworkSegment carArtworkSegment pylArtworkSegment1"><img src="/images/projects/car-aroma-detail-01.webp" alt="" loading="lazy" decoding="async" /></i>
+              <i className="pylArtworkSegment carArtworkSegment pylArtworkSegment2"><img src="/images/projects/car-aroma-detail-02.webp" alt="" loading="lazy" decoding="async" /></i>
+              <i className="pylArtworkSegment carArtworkSegment pylArtworkSegment3"><img src="/images/projects/car-aroma-detail-03.webp" alt="" loading="lazy" decoding="async" /></i>
             </div>
           </div>
 
@@ -344,10 +344,10 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
           </div>
 
           <div className="brandKvList">
-            {brandKvCases.map(project => (
+            {brandKvCases.map((project, index) => (
               <article className="brandKvCase" key={project.index}>
                 <div className="brandKvImage">
-                  <img src={project.image} alt={project.title} />
+                  <img src={project.image} alt={project.title} loading={index === 0 ? 'eager' : 'lazy'} decoding="async" />
                 </div>
                 <div className="brandKvCopy">
                   <p className="brandKvIndex">{project.index} / BRAND KEY VISUAL</p>
@@ -433,7 +433,7 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
             <div className="creativeRenderGrid">
               {creativeRenderImages.slice(0, 3).map((image, index) => (
                 <figure className="renderImageCard" key={image}>
-                  <img src={image} alt={`三维创意海报 ${String(index + 1).padStart(2, '0')}`} />
+                  <img src={image} alt={`三维创意海报 ${String(index + 1).padStart(2, '0')}`} loading={index === 0 ? 'eager' : 'lazy'} decoding="async" />
                 </figure>
               ))}
               <div className="renderGridDivider" aria-hidden="true">
@@ -441,7 +441,7 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
               </div>
               {creativeRenderImages.slice(3).map((image, index) => (
                 <figure className="renderImageCard" key={image}>
-                  <img src={image} alt={`三维创意海报 ${String(index + 4).padStart(2, '0')}`} />
+                  <img src={image} alt={`三维创意海报 ${String(index + 4).padStart(2, '0')}`} loading="lazy" decoding="async" />
                 </figure>
               ))}
             </div>
@@ -456,7 +456,7 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
             <div className="productRenderGrid">
               {productRenderImages.slice(0, 2).map((image, index) => (
                 <figure className="renderImageCard" key={image}>
-                  <img src={image} alt={`产品渲染 ${String(index + 1).padStart(2, '0')}`} />
+                  <img src={image} alt={`产品渲染 ${String(index + 1).padStart(2, '0')}`} loading="lazy" decoding="async" />
                 </figure>
               ))}
               <div className="renderGridDivider" aria-hidden="true">
@@ -464,7 +464,7 @@ export default async function WorkCategoryPage({ params }: { params: Promise<{ s
               </div>
               {productRenderImages.slice(2).map((image, index) => (
                 <figure className="renderImageCard" key={image}>
-                  <img src={image} alt={`产品渲染 ${String(index + 3).padStart(2, '0')}`} />
+                  <img src={image} alt={`产品渲染 ${String(index + 3).padStart(2, '0')}`} loading="lazy" decoding="async" />
                 </figure>
               ))}
             </div>
