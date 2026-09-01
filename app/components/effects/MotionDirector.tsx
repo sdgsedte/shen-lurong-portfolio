@@ -19,15 +19,12 @@ export default function MotionDirector() {
     gsap.registerPlugin(ScrollTrigger);
 
     const root = document.documentElement;
-    const opening = document.querySelector<HTMLElement>('.openingSequence');
     const hero = document.querySelector<HTMLElement>('.hero');
     const returningToWorks = Boolean(hero) && window.sessionStorage.getItem('portfolio-return-to-works') === '1';
     if (returningToWorks) window.sessionStorage.removeItem('portfolio-return-to-works');
-    const openingPlayed = window.sessionStorage.getItem('portfolio-opening-played') === '1';
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (reducedMotion) {
-      if (opening) opening.style.display = 'none';
       root.classList.add('motionReady');
       return () => root.classList.remove('motionReady');
     }
@@ -37,8 +34,6 @@ export default function MotionDirector() {
     let refreshTimer = 0;
 
     const context = gsap.context(() => {
-      const shouldPlayOpening = Boolean(hero) && !returningToWorks && !openingPlayed && (!window.location.hash || window.location.hash === '#top');
-
       document.querySelectorAll<HTMLImageElement>('.workDetailPage img').forEach(image => {
         gsap.set(image, { autoAlpha: 0 });
 
@@ -66,50 +61,7 @@ export default function MotionDirector() {
         });
       });
 
-      if (opening && shouldPlayOpening) {
-        window.sessionStorage.setItem('portfolio-opening-played', '1');
-        root.classList.add('motionLocked');
-        gsap.set(opening, { autoAlpha: 1, display: 'block' });
-        gsap.set('.siteHeader', { yPercent: -145, autoAlpha: 0 });
-        gsap.set('.heroScene', {
-          clipPath: 'inset(9% 6% 12% 6% round 42px)',
-          scale: 0.88,
-          yPercent: 4,
-          transformOrigin: '50% 50%'
-        });
-        gsap.set('.heroContent', { y: 115, scaleY: 0.78, autoAlpha: 0, transformOrigin: '0 100%' });
-        gsap.set('.campaignRail', { y: 90, autoAlpha: 0 });
-        gsap.set('.scrollCue', { y: 24, autoAlpha: 0 });
-
-        gsap.timeline({
-          defaults: { ease: 'power4.inOut' },
-          onComplete: () => {
-            root.classList.remove('motionLocked');
-            root.classList.add('motionReady');
-            ScrollTrigger.refresh();
-          }
-        })
-          .fromTo('.openingWordInner', { yPercent: 120 }, { yPercent: 0, duration: 0.55 })
-          .fromTo('.openingMeta', { autoAlpha: 0, y: 18 }, { autoAlpha: 1, y: 0, duration: 0.4 }, '<0.08')
-          .fromTo('.openingProgress i', { scaleX: 0 }, { scaleX: 1, duration: 0.62, ease: 'power3.inOut' }, '<0.03')
-          .to('.openingPanel', { yPercent: -104, duration: 0.9, stagger: 0.06 }, '+=0.08')
-          .to('.openingWord,.openingMeta,.openingProgress', { y: -28, autoAlpha: 0, duration: 0.3, ease: 'power3.in' }, '<0.02')
-          .to('.heroScene', {
-            clipPath: 'inset(0% 0% 0% 0% round 0px)',
-            scale: 1,
-            yPercent: 0,
-            duration: 1.05,
-            ease: 'expo.inOut'
-          }, '-=0.7')
-          .to('.heroContent', { y: 0, scaleY: 1, autoAlpha: 1, duration: 0.78, ease: 'expo.out' }, '-=0.72')
-          .to('.siteHeader', { yPercent: 0, autoAlpha: 1, duration: 0.62, ease: 'power4.out' }, '-=0.58')
-          .to('.campaignRail', { y: 0, autoAlpha: 1, duration: 0.68, ease: 'power4.out' }, '-=0.52')
-          .to('.scrollCue', { y: 0, autoAlpha: 1, duration: 0.48, ease: 'power3.out' }, '-=0.38')
-          .set(opening, { display: 'none' });
-      } else {
-        if (opening) gsap.set(opening, { display: 'none' });
-        root.classList.add('motionReady');
-      }
+      root.classList.add('motionReady');
 
       if (hero && !returningToWorks) {
       const categoryCards = gsap.utils.toArray<HTMLElement>('.workCategoryCard');
@@ -269,18 +221,9 @@ export default function MotionDirector() {
       window.clearTimeout(refreshTimer);
       context.revert();
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-      root.classList.remove('motionEnhanced', 'motionLocked', 'motionReady');
+      root.classList.remove('motionEnhanced', 'motionReady');
     };
   }, []);
 
-  return (
-    <div className="openingSequence" aria-hidden="true">
-      <div className="openingPanel openingPanelA" />
-      <div className="openingPanel openingPanelB" />
-      <div className="openingPanel openingPanelC" />
-      <div className="openingWord"><span className="openingWordInner">SLR®</span></div>
-      <div className="openingMeta"><span>VISUAL DESIGN</span><span>GUANGZHOU · 2026</span></div>
-      <div className="openingProgress"><i /></div>
-    </div>
-  );
+  return null;
 }
