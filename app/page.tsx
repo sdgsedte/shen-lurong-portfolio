@@ -1,8 +1,8 @@
 import { workCategories } from './work/workData';
 
-const campaignCards = Array.from({ length: 15 }, (_, index) => ({
-  src: `/images/campaign/campaign-${String(index + 1).padStart(2, "0")}.webp`,
-  alt: `Life-space 益生菌电商视觉海报 ${index + 1}`,
+const campaignCards = Array.from({ length: 14 }, (_, index) => ({
+  src: `/images/campaign/portfolio-carousel-${String(index + 1).padStart(2, "0")}.webp`,
+  alt: `Life-space 益倍适跨境官旗产品主图 ${index + 1}`,
 }));
 const autumnLeaves = Array.from({ length: 14 });
 const snowFlakes = Array.from({ length: 29 });
