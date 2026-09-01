@@ -64,6 +64,34 @@ export default function MotionDirector() {
       root.classList.add('motionReady');
 
       if (hero && !returningToWorks) {
+      gsap.timeline({ defaults: { ease: 'expo.out' } })
+        .from('.availability', {
+          y: 18,
+          autoAlpha: 0,
+          duration: 0.7,
+          clearProps: 'transform,opacity,visibility'
+        })
+        .from('.heroTitleLineInner', {
+          yPercent: 115,
+          scaleY: 0.8,
+          duration: 1.05,
+          stagger: 0.12,
+          clearProps: 'transform'
+        }, '-=0.38')
+        .from('.heroSignature', {
+          x: -20,
+          rotate: -16,
+          autoAlpha: 0,
+          duration: 0.7,
+          clearProps: 'transform,opacity,visibility'
+        }, '-=0.46')
+        .from('.heroIntro p', {
+          y: 22,
+          autoAlpha: 0,
+          duration: 0.75,
+          clearProps: 'transform,opacity,visibility'
+        }, '-=0.42');
+
       const categoryCards = gsap.utils.toArray<HTMLElement>('.workCategoryCard');
       const categoryMedia = categoryCards
         .map(card => card.querySelector<HTMLElement>('.workCategoryMedia'))

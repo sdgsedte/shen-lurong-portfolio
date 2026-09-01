@@ -9,18 +9,15 @@ const LIQUID_COLORS = ['#5227FF', '#FF9FFC', '#B497CF'];
 
 export default function SiteEffects() {
   const [showWebGL, setShowWebGL] = useState(false);
-  const [showMotion, setShowMotion] = useState(false);
 
   useEffect(() => {
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
-    const motionTimer = reducedMotion ? 0 : window.setTimeout(() => setShowMotion(true), 0);
     const webglTimer = reducedMotion || connection?.saveData
       ? 0
       : window.setTimeout(() => setShowWebGL(true), 700);
 
     return () => {
-      if (motionTimer) window.clearTimeout(motionTimer);
       if (webglTimer) window.clearTimeout(webglTimer);
     };
   }, []);
@@ -50,7 +47,7 @@ export default function SiteEffects() {
         </Suspense>
       </div>
       <Suspense fallback={null}><BorderGlowController /></Suspense>
-      <Suspense fallback={null}>{showMotion ? <MotionDirector /> : null}</Suspense>
+      <Suspense fallback={null}><MotionDirector /></Suspense>
     </>
   );
 }
