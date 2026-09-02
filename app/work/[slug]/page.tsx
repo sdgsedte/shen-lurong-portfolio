@@ -7,7 +7,7 @@ const brandKvCases = [
     index: '01',
     title: '超级88 KV 视觉',
     meta: '会员活动 / 节点营销 / 产品组合传播',
-    image: '/images/projects/brand-kv-super88.jpg',
+    image: '/images/projects/brand-kv-super88.webp',
     heading: '将“88”转化为活动记忆符号',
     description: '围绕“超级88节”会员活动，将数字 88 放大为通透立体的核心视觉符号，并以礼盒、丝带与多产品组合强化节日感和抽奖利益点。品牌蓝建立清爽可信的主基调，橙红色活动信息形成视觉跳点，让活动名称、会员权益和产品阵容在单张画面中快速完成传达。',
     keywords: ['活动符号', '会员权益', '产品矩阵'],
@@ -17,7 +17,7 @@ const brandKvCases = [
     index: '02',
     title: '双12 刘畊宏 KV 视觉',
     meta: '品牌大使 / 双12大促 / 身材管理主题',
-    image: '/images/projects/brand-kv-liu-genghong.jpg',
+    image: '/images/projects/brand-kv-liu-genghong.webp',
     heading: '以人物势能连接身材管理主题',
     description: '以刘畊宏健康、自律的公众形象承接“身材管理”传播主题，人物手持产品形成直观使用背书，前景产品阵列进一步强化购买对象。开阔的蓝天与悉尼海港背景呼应品牌澳洲基因，白色运动造型和高明度蓝色共同塑造轻盈、积极且具有行动感的大促视觉。',
     keywords: ['人物背书', '身材管理', '澳洲基因'],
@@ -27,7 +27,7 @@ const brandKvCases = [
     index: '03',
     title: '双11 KV 视觉',
     meta: '双11大促 / 澳洲品牌识别 / 产品组合传播',
-    image: '/images/projects/brand-kv-double11.jpg',
+    image: '/images/projects/brand-kv-double11.webp',
     heading: '以悉尼地标强化澳洲品牌原点',
     description: '画面将悉尼歌剧院与海港大桥置于同一海港视野中，用两个具有全球辨识度的标志性建筑建立清晰的澳洲地域锚点，强化品牌来源与可信度。日出暖光、海面倒影和产品陈列形成由远及近的空间层次，既保留澳洲生活方式的轻松氛围，也让双11利益信息与核心产品成为画面焦点。',
     keywords: ['悉尼歌剧院', '海港大桥', '地域识别'],
@@ -37,7 +37,7 @@ const brandKvCases = [
     index: '04',
     title: '王一博官宣 KV',
     meta: '全球代言人 / 官宣传播 / 品牌升级',
-    image: '/images/projects/brand-kv-wang-yibo.jpg',
+    image: '/images/projects/brand-kv-wang-yibo.webp',
     heading: '以品牌资产承接全球代言官宣',
     description: '画面延续 life·space 标志性的品牌蓝，并以同色系人物造型建立代言人与品牌之间的视觉关联。金色大标题突出“全球代言人”的身份信息，形成具有发布感的官宣第一印象；流动光轨环绕人物并延伸至底部产品矩阵，将明星影响力、品牌态度与产品背书连接在同一条视觉路径中，完成从身份官宣到品牌认知的清晰传达。',
     keywords: ['品牌资产', '身份官宣', '产品背书'],
@@ -46,28 +46,28 @@ const brandKvCases = [
 ];
 
 const creativeRenderImages = [
-  '/images/projects/render-creative-01.jpg',
-  '/images/projects/render-creative-02.jpg',
-  '/images/projects/render-creative-03.jpg',
-  '/images/projects/render-creative-04.jpg',
-  '/images/projects/render-creative-05.jpg',
-  '/images/projects/render-creative-06.jpg'
+  '/images/projects/render-creative-01.webp',
+  '/images/projects/render-creative-02.webp',
+  '/images/projects/render-creative-03.webp',
+  '/images/projects/render-creative-04.webp',
+  '/images/projects/render-creative-05.webp',
+  '/images/projects/render-creative-06.webp'
 ];
 
 const productRenderImages = [
-  '/images/projects/product-render-01.jpg',
-  '/images/projects/product-render-02.jpg',
-  '/images/projects/product-render-03.jpg',
-  '/images/projects/product-render-04.jpg'
+  '/images/projects/product-render-01.webp',
+  '/images/projects/product-render-02.webp',
+  '/images/projects/product-render-03.webp',
+  '/images/projects/product-render-04.webp'
 ];
 
 const livestreamCases = [
-  { title: '天猫日常直播视觉', image: '/images/projects/livestream-daily.jpg' },
-  { title: '小红书室内直播视觉', image: '/images/projects/livestream-xhs-interior.jpg' },
-  { title: '双11直播间视觉', image: '/images/projects/livestream-double11.jpg' },
-  { title: '过年前直播间视觉', image: '/images/projects/livestream-pre-spring.jpg' },
-  { title: '春节直播间视觉', image: '/images/projects/livestream-spring-festival.jpg' },
-  { title: '代言人马年续约', image: '/images/projects/livestream-ambassador-renewal.jpg' }
+  { title: '天猫日常直播视觉', image: '/images/projects/livestream-daily.webp' },
+  { title: '小红书室内直播视觉', image: '/images/projects/livestream-xhs-interior.webp' },
+  { title: '双11直播间视觉', image: '/images/projects/livestream-double11.webp' },
+  { title: '过年前直播间视觉', image: '/images/projects/livestream-pre-spring.webp' },
+  { title: '春节直播间视觉', image: '/images/projects/livestream-spring-festival.webp' },
+  { title: '代言人马年续约', image: '/images/projects/livestream-ambassador-renewal.webp' }
 ];
 
 const productDetailProjects = [

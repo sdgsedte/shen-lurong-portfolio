@@ -63,39 +63,6 @@ export default function MotionDirector() {
       });
 
       if (hero && !returningToWorks) {
-        gsap.set('.availability', { y: 18, autoAlpha: 0 });
-        gsap.set('.heroTitleLineInner', { yPercent: 115, scaleY: 0.8 });
-        gsap.set('.heroSignature', { x: -20, rotate: -16, autoAlpha: 0 });
-        gsap.set('.heroIntro p', { y: 22, autoAlpha: 0 });
-
-        gsap.timeline({ defaults: { ease: 'expo.out' } })
-        .to('.availability', {
-          y: 0,
-          autoAlpha: 1,
-          duration: 0.7,
-          clearProps: 'transform,opacity,visibility'
-        })
-        .to('.heroTitleLineInner', {
-          yPercent: 0,
-          scaleY: 1,
-          duration: 1.05,
-          stagger: 0.12,
-          clearProps: 'transform'
-        }, '-=0.38')
-        .to('.heroSignature', {
-          x: 0,
-          rotate: -8,
-          autoAlpha: 1,
-          duration: 0.7,
-          clearProps: 'transform,opacity,visibility'
-        }, '-=0.46')
-        .to('.heroIntro p', {
-          y: 0,
-          autoAlpha: 1,
-          duration: 0.75,
-          clearProps: 'transform,opacity,visibility'
-          }, '-=0.42');
-
       const categoryCards = gsap.utils.toArray<HTMLElement>('.workCategoryCard');
       const categoryMedia = categoryCards
         .map(card => card.querySelector<HTMLElement>('.workCategoryMedia'))
@@ -226,18 +193,28 @@ export default function MotionDirector() {
             transformOrigin: '0 100%',
             duration: 1.35,
             ease: 'expo.out'
-          })
-          .from(supporting, { y: 42, autoAlpha: 0, duration: 0.9, stagger: 0.1, ease: 'power4.out' }, '-=0.82');
+          });
+        if (supporting.length > 0) {
+          gsap.from(supporting, {
+            y: 42,
+            autoAlpha: 0,
+            duration: 0.9,
+            stagger: 0.1,
+            ease: 'power4.out',
+            scrollTrigger: { trigger: heading, start: 'top 82%', once: true }
+          });
+        }
       });
 
       const detailCards = gsap.utils.toArray<HTMLElement>(DETAIL_CARDS);
-      gsap.set(detailCards, { y: 58, autoAlpha: 0, clipPath: 'inset(0 0 10% 0)' });
-      ScrollTrigger.batch(DETAIL_CARDS, {
-        start: 'top 90%',
-        once: true,
-        interval: 0.16,
-        batchMax: 4,
-        onEnter: cards => gsap.to(cards, {
+      if (detailCards.length > 0) {
+        gsap.set(detailCards, { y: 58, autoAlpha: 0, clipPath: 'inset(0 0 10% 0)' });
+        ScrollTrigger.batch(DETAIL_CARDS, {
+          start: 'top 90%',
+          once: true,
+          interval: 0.16,
+          batchMax: 4,
+          onEnter: cards => gsap.to(cards, {
             y: 0,
             autoAlpha: 1,
             clipPath: 'inset(0 0 0% 0)',
@@ -246,7 +223,8 @@ export default function MotionDirector() {
             ease: 'expo.out',
             clearProps: 'transform,opacity,visibility,clipPath'
           })
-      });
+        });
+      }
 
       refreshTimer = window.setTimeout(() => ScrollTrigger.refresh(), 220);
     }, document.body);

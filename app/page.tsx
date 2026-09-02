@@ -45,7 +45,8 @@ export default function Home() {
                 <img
                   src={card.src}
                   alt={index < campaignCards.length ? card.alt : ""}
-                  loading={index < 5 ? 'eager' : 'lazy'}
+                  loading={index < 3 ? 'eager' : 'lazy'}
+                  fetchPriority={index < 2 ? 'auto' : 'low'}
                   decoding="async"
                 />
               </figure>

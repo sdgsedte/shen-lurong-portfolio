@@ -41,24 +41,18 @@ const decorate = (root: ParentNode = document) => {
 
 export default function BorderGlowController() {
   useEffect(() => {
-    decorate();
+    if (!window.matchMedia('(pointer: fine)').matches || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    const observer = new MutationObserver(records => {
-      records.forEach(record => {
-        record.addedNodes.forEach(node => {
-          if (node instanceof HTMLElement) {
-            if (node.matches(GLOW_TARGETS)) decorate(node.parentElement ?? document);
-            else decorate(node);
-          }
-        });
-      });
-    });
-    observer.observe(document.body, { childList: true, subtree: true });
+    decorate();
 
     let active: HTMLElement | null = null;
     let activeCategory: HTMLElement | null = null;
     let motionFrame = 0;
-    const handlePointerMove = (event: PointerEvent) => {
+    let latestPointerEvent: PointerEvent | null = null;
+    const updatePointer = () => {
+      motionFrame = 0;
+      const event = latestPointerEvent;
+      if (!event) return;
       const target = event.target instanceof Element
         ? event.target.closest<HTMLElement>(GLOW_TARGETS)
         : null;
@@ -72,15 +66,12 @@ export default function BorderGlowController() {
         const categoryRect = category.getBoundingClientRect();
         const normalizedX = Math.max(0, Math.min(1, (event.clientX - categoryRect.left) / categoryRect.width));
         const normalizedY = Math.max(0, Math.min(1, (event.clientY - categoryRect.top) / categoryRect.height));
-        cancelAnimationFrame(motionFrame);
-        motionFrame = requestAnimationFrame(() => {
-          category.style.setProperty('--card-x', `${(normalizedX * 100).toFixed(2)}%`);
-          category.style.setProperty('--card-y', `${(normalizedY * 100).toFixed(2)}%`);
-          category.style.setProperty('--card-tilt-x', `${((0.5 - normalizedY) * 1.8).toFixed(2)}deg`);
-          category.style.setProperty('--card-tilt-y', `${((normalizedX - 0.5) * 1.8).toFixed(2)}deg`);
-          category.style.setProperty('--media-shift-x', `${((normalizedX - 0.5) * -12).toFixed(2)}px`);
-          category.style.setProperty('--media-shift-y', `${((normalizedY - 0.5) * -8).toFixed(2)}px`);
-        });
+        category.style.setProperty('--card-x', `${(normalizedX * 100).toFixed(2)}%`);
+        category.style.setProperty('--card-y', `${(normalizedY * 100).toFixed(2)}%`);
+        category.style.setProperty('--card-tilt-x', `${((0.5 - normalizedY) * 1.8).toFixed(2)}deg`);
+        category.style.setProperty('--card-tilt-y', `${((normalizedX - 0.5) * 1.8).toFixed(2)}deg`);
+        category.style.setProperty('--media-shift-x', `${((normalizedX - 0.5) * -12).toFixed(2)}px`);
+        category.style.setProperty('--media-shift-y', `${((normalizedY - 0.5) * -8).toFixed(2)}px`);
       } else if (activeCategory) {
         activeCategory.style.removeProperty('--card-tilt-x');
         activeCategory.style.removeProperty('--card-tilt-y');
@@ -115,6 +106,10 @@ export default function BorderGlowController() {
       target.style.setProperty('--glow-x', `${x}px`);
       target.style.setProperty('--glow-y', `${y}px`);
     };
+    const handlePointerMove = (event: PointerEvent) => {
+      latestPointerEvent = event;
+      if (!motionFrame) motionFrame = requestAnimationFrame(updatePointer);
+    };
 
     const handlePointerLeave = () => {
       active?.classList.remove('borderGlowActive');
@@ -130,7 +125,6 @@ export default function BorderGlowController() {
     document.documentElement.addEventListener('pointerleave', handlePointerLeave);
 
     return () => {
-      observer.disconnect();
       cancelAnimationFrame(motionFrame);
       window.removeEventListener('pointermove', handlePointerMove);
       document.documentElement.removeEventListener('pointerleave', handlePointerLeave);

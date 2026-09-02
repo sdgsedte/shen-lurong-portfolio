@@ -13,7 +13,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: "document.documentElement.classList.add('motionBooting');setTimeout(function(){document.documentElement.classList.remove('motionBooting')},2500);",
+            __html: "(function(){var d=document.documentElement;d.classList.add('motionBooting');function start(){d.classList.remove('motionBooting');d.classList.add('heroMotionActive');setTimeout(function(){d.classList.remove('heroMotionActive')},2400)}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',function(){requestAnimationFrame(start)},{once:true})}else{requestAnimationFrame(start)}setTimeout(function(){d.classList.remove('motionBooting')},2500)})();",
           }}
         />
       </head>
