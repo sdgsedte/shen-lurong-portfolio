@@ -107,8 +107,8 @@ export default function Home() {
             {workCategories.map((item, index) => (
               <a className={`workCategoryCard workCategoryCard${index + 1}`} href={`/work/${item.slug}`} key={item.slug}>
                 <div
-                  className={`workCategoryMedia${item.fit === 'contain' ? ' workCategoryMediaContain' : ''}`}
-                  style={item.fit === 'contain' ? { backgroundImage: `url(${item.image})` } : undefined}
+                  className={`workCategoryMedia${(item as any).fit === 'contain' ? ' workCategoryMediaContain' : ''}`}
+                  style={(item as any).fit === 'contain' ? { backgroundImage:`url(${item.image})` } : undefined}
                 >
                   <img src={item.image} alt={`${item.title}分类封面`} loading="lazy" decoding="async" />
                 </div>
