@@ -59,7 +59,7 @@ export default function Home() {
         <div className="careerProfile">
           <div className="careerPortrait">
             <img
-              src="/images/designer-portrait-night.jpg"
+              src="/images/designer-portrait-night-sleeves.jpg"
               alt="沈路荣夜间户外人像"
               loading="lazy"
               decoding="async"
