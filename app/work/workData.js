@@ -23,7 +23,7 @@ export const workCategories = [
     title: '店铺首页设计',
     english: 'STORE HOMEPAGE',
     description: '店铺装修 / 活动会场 / 视觉体系',
-    image: '/images/work-categories/store-home.webp',
+    image: '/images/work-categories/store-home-38.jpg',
     intro: '以品牌调性统筹店铺首页、活动入口与货品层级，在统一视觉中兼顾浏览效率和营销节奏。'
   },
   {
