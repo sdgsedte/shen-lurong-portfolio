@@ -92,7 +92,7 @@ export default function Home() {
         <div className="careerPath">
           <div className="careerPathHeading"><span>CAREER PATH</span><h3>工作经历</h3></div>
           <div className="careerTimeline">
-            <article><i /><time>2024.10 — 2026.05</time><h4>广州健达贸易有限公司</h4><b>电商设计师</b><p>活动页面、引流海报与商品详情页迭代；独立输出直播间全套视觉物料。</p></article>
+            <article><i /><time>2024.10 — 2026.08</time><h4>广州健达贸易有限公司</h4><b>电商设计师</b><p>活动页面、引流海报与商品详情页迭代；独立输出直播间全套视觉物料。</p></article>
             <article><i /><time>2023.12 — 2024.08</time><h4>广州优象文化用品有限公司</h4><b>设计师</b><p>负责产品 3D 建模渲染、重点款详情页制作，统筹 S 级大促视觉。</p></article>
             <article><i /><time>2021.04 — 2023.10</time><h4>广州拓客商贸有限公司</h4><b>视觉设计师</b><p>多平台店铺装修与大促视觉物料设计，持续优化主图与推广素材。</p></article>
           </div>
