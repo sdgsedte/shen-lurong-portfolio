@@ -64,7 +64,7 @@ export default function HomepageCaseStudy() {
           </figure>
         </section>
 
-        <section className="storeProject storeProject--pair" aria-label="万火双12与1688首页">
+        <section className="storeProject storeProject--pair" aria-label="万火双12与38活动首页">
           <article className="storeProjectCard">
             <div className="storeProjectIntro storeProjectIntro--card">
               <div><span>03 / CAMPAIGN HOMEPAGE</span><h3>万火双12首页</h3></div>
@@ -77,11 +77,11 @@ export default function HomepageCaseStudy() {
 
           <article className="storeProjectCard">
             <div className="storeProjectIntro storeProjectIntro--card">
-              <div><span>04 / BRAND HOMEPAGE</span><h3>万火1688首页</h3></div>
-              <p>以暖金色建立品牌与制造实力的专业印象，通过工厂规模、定制流程、合作品牌、资质认证与产品案例，形成从企业背书到产品展示的完整浏览路径。</p>
+              <div><span>04 / CAMPAIGN HOMEPAGE</span><h3>万火38活动首页</h3></div>
+              <p>围绕 3·8 焕新周节点，以柔粉色与礼赠场景营造轻盈甜美的活动氛围，并将预热节奏、核心权益与热卖单品连续组织，形成从活动认知到商品选购的完整浏览路径。</p>
             </div>
             <figure className="storeProjectImage">
-              <img src="/images/projects/store-home/wanhuo-1688.webp" alt="万火1688店铺首页视觉" loading="lazy" decoding="async" />
+              <img src="/images/projects/store-home/wanhuo-38-homepage.jpg" alt="万火38活动店铺首页视觉" loading="lazy" decoding="async" />
             </figure>
           </article>
         </section>
